@@ -16,36 +16,36 @@ $(document).ready(function(){
 			container.hide();
 		}
 	});
-	$("#click_show_cate").click(function(){
-		$("#show_cate").toggle("300");
-	});
+	// $("#click_show_cate").click(function(){
+	// 	$("#show_cate").toggle("300");
+	// });
 
 
 	/* For menu index and menu collection desktop */
 
-	$('ul#show_cate').each(function(){
+	// $('ul#show_cate').each(function(){
 
-		var LiN = $(this).find('li').length;
+	// 	var LiN = $(this).find('li').length;
 
-		if( LiN > 4){    
-			$('li', this).eq(6).nextAll().hide().addClass('toggleable');
-			$(this).append('<li class="more icon"><a>XEM THÊM</a></li>');    
-		}
+	// 	if( LiN > 4){    
+	// 		$('li', this).eq(6).nextAll().hide().addClass('toggleable');
+	// 		$(this).append('<li class="more icon"><a>XEM THÊM</a></li>');    
+	// 	}
 
-	});
+	// });
 
 
-	$('ul#show_cate').on('click','.more', function(){
+	// $('ul#show_cate').on('click','.more', function(){
 
-		if( $(this).hasClass('less') ){    
-			$(this).html('<li><a>XEM THÊM</a></li>').removeClass('less');    
-		}else{
-			$(this).html('<a>THU GỌN</>').addClass('less'); 
-		}
+	// 	if( $(this).hasClass('less') ){    
+	// 		$(this).html('<li><a>XEM THÊM</a></li>').removeClass('less');    
+	// 	}else{
+	// 		$(this).html('<a>THU GỌN</>').addClass('less'); 
+	// 	}
 
-		$(this).siblings('li.toggleable').slideToggle();
+	// 	$(this).siblings('li.toggleable').slideToggle();
 
-	}); 
+	// }); 
 
 
 

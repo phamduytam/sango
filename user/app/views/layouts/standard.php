@@ -34,44 +34,46 @@
 <section class="category">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 				<nav class="nav-category block">
-					<h2 id="click_show_cate">Danh mục</h2>
+					<h2 id="click_show_cate">Danh mục sản phẩm</h2>
 					<ul id="show_cate">
-					<li >
-						<a href="/frontpage"><img src="<?php echo app()->baseUrl;?>/assets/category1.png?1493875157619"  alt="Sản phẩm mới"><img src="assets/category-hover1.png?1493875157619"  alt="Sản phẩm mới"> Sản phẩm mới</a>
-						
-					</li>
-					
-					<li >
-						<a href="/san-pham-noi-bat"><img src="<?php echo app()->baseUrl;?>/assets/category2.png?1493875157619"  alt="Sản phẩm nổi bật"><img src="assets/category-hover2.png?1493875157619"  alt="Sản phẩm nổi bật"> Sản phẩm nổi bật</a>
-						
-					</li>
-					
-					<li >
-						<a href="/san-pham-khuyen-mai"><img src="<?php echo app()->baseUrl;?>/assets/category3.png?1493875157619"  alt="Sản phẩm khuyến mãi"><img src="assets/category-hover3.png?1493875157619"  alt="Sản phẩm khuyến mãi"> Sản phẩm khuyến mãi</a>
-						
-					</li>
 						<?php
-							$i = 0;
 							$category = $this->getCategory();
 							if($category):
 								?>
 							<?php
 							foreach ($category as $v):
-								$i++;
 						?>
 						<li>
 						<a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v->alias?>.html" title="<?php echo $v->name?>">
-								<img src="<?php echo app()->baseUrl;?>/assets/category<?php echo $i ?>.png" alt="<?php echo $v->name?>">
-								<img src="<?php echo app()->baseUrl;?>/assets/category-hover<?php echo $i ?>.png" alt="<?php echo $v->name?>"><?php echo $v->name?></a>
+								<img src="<?php echo app()->baseUrl;?>/assets/images/icon.png" alt="<?php echo $v->name?>">
+								<img src="<?php echo app()->baseUrl;?>/assets/images/icon_hover.png" alt="<?php echo $v->name?>"><?php echo $v->name?></a>
+							<ul>
+								<?php
+									$category1 = $this->getCategory1($v->id);
+									if($category1):
+										?>
+									<?php
+									foreach ($category1 as $v1):
+								?>
+								<li>
+									<a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v1->alias?>.html" title="<?php echo $v1->name?>">
+										<img src="<?php echo app()->baseUrl;?>/assets/images/icon1.png" alt="<?php echo $v1->name?>">
+										<img src="<?php echo app()->baseUrl;?>/assets/images/icon1_hover.png" alt="<?php echo $v1->name?>"><?php echo $v1->name?></a>		
+									</a>
+								</li>
+								<?php endforeach; ?>
+								<?php endif; ?>
+							</ul>	
+							
 						</li>
 						<?php endforeach;?>
 						<?php endif;?>
 					</ul>
 				</nav>
 			</div>
-			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 				<div class="heading">
 					<h1><?php echo $this->pageTitle;?></h1>
 				</div>
