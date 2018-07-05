@@ -72,8 +72,11 @@
                                 <img src="<?php echo app()->baseUrl;?>/assets/images/phone.png">
                                 <?php echo $hotline;?> <span>(Zalo / Viber)</span>
                             </h2>
+                            <a class="nav-main-button" href="javascript:void(0)">
+                                <img src="<?php echo app()->baseUrl;?>/assets/nav-main-bars.png?1493875157619" alt="Danh mục">
+                            </a>
                         </div>
-                        <div class="col-lg-4 col-md-8 col-sm-6 col-xs-12 float-right">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 float-right">
                             <div class="form-search hidden-xs">
                                 <?php
                                     $form = $this->beginWidget('TbActiveForm', array(
@@ -112,11 +115,11 @@
 
                                     </li>
                                     <li class="<?php echo $this->id == 'gioithieu' ? 'active' : ''?>">
-                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Công trình sàn gỗ</a>
+                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Phụ kiện sàn gỗ</a>
 
                                     </li>
-                                    <li class="<?php echo $this->id == 'gioithieu' ? 'active' : ''?>">
-                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Sản phẩm sàn gỗ</a>
+                                    <li class="<?php echo $this->id == 'congtrinh' ? 'active' : ''?>">
+                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Công trình sàn gỗ</a>
 
                                     </li>
 

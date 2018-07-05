@@ -79,7 +79,6 @@ span#click_show { color: #c7c7c7; position: absolute;right: 10px;top: 19px;curso
 .nav-main > ul > li{float:left;position:relative}
 .nav-main > ul > li > a{display:block;height:48px;padding:0 20px;line-height:48px;font-weight:700;color:#f4dc34;text-transform:uppercase}
 .nav-main > ul > li:first-child > a{padding-left:0}
-.nav-main > ul > li:nth-child(3) > a{padding-right: 340px}
 .nav-main ul li:hover > a,.nav-main ul li.active > a{color:#ef3737}
 .nav-main > ul > li:hover .nav-main-sub{display:block}
 @media (min-width: 768px){
@@ -311,7 +310,7 @@ select.form-text{height:45px}
 .product-select-group{width:100%;overflow:hidden;padding:15px 0 25px;border-bottom:1px solid #ebebeb;margin-bottom:20px}
 .product-select-group label{width:100%;font-size:14px;font-weight:400;color:#363533;line-height:30px}
 .product-quantity-group{width:50%;float:left}
-.product-quantity-group span{display:inline-block;float:left;width:40px;height:40px;color:#404040;line-height:40px;text-align:center;background-color:#fff;border:1px solid #ebebeb;cursor:pointer}
+.product-quantity-group span{float:left;width:40px;height:40px;color:#404040;line-height:40px;text-align:center;background-color:#fff;border:1px solid #ebebeb;cursor:pointer}
 .product-quantity{float:left;height:40px;width:60px;line-height:40px;color:#404040;text-align:center;border:1px solid #ebebeb;border-left:none;border-right:none;outline:none}
 .product-add,.product-add:hover{display:inline-block;height:45px;padding:0 25px;margin:20px 0;line-height:45px;color:#fff;text-decoration:none;text-transform:uppercase;background-color:#977c61}
 .product-image{margin-bottom:40px}
@@ -340,7 +339,7 @@ select.form-text{height:45px}
 .heading-small h3{position:absolute;top:-1px;left:0;display:inline-block;margin:0;font-size:16px;line-height:35px;color:#404040;text-transform:uppercase;border-bottom:1px solid #ef3737}
 .footer-about ul{margin-top:10px}
 .footer-about ul li{line-height:35px;width:100%;float: left;}
-.footer-about ul li i{display:inline-block;float:left;width:25px; color:#ef3737;line-height:35px}
+.footer-about ul li i{float:left;width:25px; color:#ef3737;line-height:35px}
 .footer-about ul li:first-child{margin-top:15px}
 .footer-about ul li:first-child i{/*margin-bottom:10px;*/ margin-top:-5px;}
 .footer-about ul li p{margin:0;padding:0}
@@ -437,9 +436,13 @@ select.form-text{height:45px}
 	.nav-category ul li{padding:10px 5px}
 	.nav-social ul li:first-child{width:100%;padding:12px 0 0}
 	.nav-category > ul > li img{margin-right:5px}
+	.nav-main > ul > li:nth-child(3) > a{padding-right: 180px}
+	.logo { left: 41%}
+	.header-top h2 { padding-left: 0; font-size: 17px;}
 }
 @media (min-width: 1200px) {
 	.nav-main-button{display:none}
+	.nav-main > ul > li:nth-child(3) > a{padding-right: 340px}
 }
 .sp_1,.sp_2{background:url(support-online.png) left center no-repeat}
 .sp_mail{background:url(email.png) left center no-repeat}
@@ -467,7 +470,7 @@ div#mail-box {
 @media (max-width: 543px){
 
 	.footer-copyright p {
-		height:10px!important
+		height:10px!important;
 			margin: 0;
 		padding: 0;
 		color: #404040;
