@@ -106,12 +106,22 @@ span#click_show { color: #c7c7c7; position: absolute;right: 10px;top: 19px;curso
 .feature ul li img{height:50px;width:50px;margin-bottom:10px}
 .feature ul li p{margin:0 0 5px;padding:0;font-size:14px;line-height:22px;color:#404040}
 .feature ul li h2{margin:0;padding:0;font-size:14px;font-weight:700;text-transform:uppercase}
-.heading{position:relative;height:35px;margin-bottom:30px;border-bottom:1px solid #ebebeb}
-.heading h2,.heading h1{position:absolute;top:0;left:0;display:inline-block;margin:0;padding:0 0 10px;line-height: 24px;font-size:18px;color:#404040;text-transform:uppercase;border-bottom:1px solid #ef3737}
-.heading-button{position:absolute;right:0;bottom:-14px;background-color:#fff}
-.heading-button span{display:block;float:left;margin-right:5px;height:27px;width:27px;text-align:center;line-height:27px;background-color:#f6f6f6;cursor:pointer}
-.heading-button span:hover{background:#ef3737;color:#fff}
+.heading{position:relative;height:46px;margin-bottom:30px;border-bottom:1px solid #252525}
+.heading h2,.heading h1{position:absolute;top:0;left:0;display:inline-block;margin:0;line-height: 46px;font-size:18px;color:#fff;text-transform:uppercase; background: #252525;}
+.heading h2:before,.heading h1:before { background-image:url(images/icon_left.png); height: 46px; width: 25px; float: left; content:"";display:block; margin-right: 25px}
+.heading h2:after,.heading h1:after { background-image:url(images/icon_right.png); height: 46px; width: 55px; float: right; content:"";display:block; margin-left: 30px;}
+.heading ul {position: absolute; top: 16px; right: 55px;}
+.heading ul li { display: inline-block;}
+.heading ul li:after { content: "|"; float: right; padding: 0 10px}
+.heading ul li:last-child:after { content: ""; float: right; padding: 0 10px}
+.heading ul li a { color: #8e8e8e;}
+.heading ul li a:hover {color: #2b2b2b}
+.heading-button{position:absolute;right:0;bottom:5px;background-color:#fff}
+.heading-button span{display:block;float:left;margin-right:5px;height:27px;width:27px;text-align:center;line-height:27px;cursor:pointer}
+.heading-button span:hover{color:#fff; opacity: 0.7}
 .heading-button span:last-child{margin-right:0}
+.heading-button .button-prev { background-image: url(images/icon_prev.png); width: 25px; height: 26px;}
+.heading-button .button-next { background-image: url(images/icon_next.png); width: 25px; height: 26px;}
 .heading2{position:relative;height:35px;margin-bottom:30px;border-bottom:1px solid #ebebeb}
 .heading2 h2{position:absolute;top:0;left:50%;display:inline-block;margin:0;margin-left:-35px;padding:0 0 15px;font-size:18px;color:#404040;text-transform:uppercase;border-bottom:1px solid #ef3737}
 .product-item{margin-bottom:30px;border:1px solid #ebebeb;text-align:center}

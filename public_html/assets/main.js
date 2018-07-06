@@ -54,7 +54,9 @@ $(document).ready(function(){
 	$(".owl-slider").owlCarousel({
 		slideSpeed: 300,
 		paginationSpeed: 400,
-		singleItem: true
+		singleItem: true,
+		autoPlay: 5000,
+		stopOnHover: true
 	});
 	$(".owl-best-sell").owlCarousel({
 		slideSpeed: 300,
@@ -67,6 +69,26 @@ $(document).ready(function(){
 		singleItem: true
 	});
 	$(".owl-related").owlCarousel({
+		slideSpeed: 300,
+		paginationSpeed: 400,
+		singleItem: true
+	});
+	$(".owl-related0").owlCarousel({
+		slideSpeed: 300,
+		paginationSpeed: 400,
+		singleItem: true
+	});
+	$(".owl-related1").owlCarousel({
+		slideSpeed: 300,
+		paginationSpeed: 400,
+		singleItem: true
+	});
+	$(".owl-related2").owlCarousel({
+		slideSpeed: 300,
+		paginationSpeed: 400,
+		singleItem: true
+	});
+	$(".owl-related3").owlCarousel({
 		slideSpeed: 300,
 		paginationSpeed: 400,
 		singleItem: true

@@ -1,116 +1,87 @@
 <section class="best-sell">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <?php if($new):?>
-                <!-- Sản phẩm mới -->
-                <div class="new-products block">
-                    <div class="heading heading_rel">
-                        <h2>Sản phẩm mới</h2>
-                        <div class="view_all">
-                            <a href="frontpage">Xem tất cả
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="block-content">
-                        <div class="item">
-                            <div class="row">
-                                <?php foreach ($new as $value):?>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                    <div class="product-item">
-                                        <div class="product-item-thumbnail">
-                                            <div class="product-item-background">
-                                                <div class="product-item-button">
-
-
-                                                    <a class="product-item-view single_view" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                        <i class="fa fa-search"></i>
-                                                    </a>
-
-
-
-                                                </div>
-                                            </div>
-                                            <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/thumbs/<?php echo $value->image?>" alt="<?php echo $value->name?>">
-                                        </div>
-                                        <h3 class="product-item-name">
-                                            <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                <?php echo $value->name?>
-                                            </a>
-                                        </h3>
-                                        <p class="product-item-price">
-                                            <?php echo $value->price?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <?php endforeach;?>
+        <?php if ($category):?>
+            <?php $j = 0;?>
+            <?php foreach($category as $v):?>
+                <?php $productCat = $this->getProductByCatId($v->id, 8);?>
+                <?php if($productCat):?>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="heading">
+                            <h2><?php echo $v->name ?></h2>
+                            <?php $category1 = $this->getCategory1($v->id);
+                                    if($category1):
+                            ?>
+                            <ul>
+                                <?php
+                                    foreach ($category1 as $v1):
+                                ?>
+                                <li><a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v1->alias?>.html" title="<?php echo $v1->name?>"><?php echo $v1->name ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <?php endif;?>
+                            <div class="heading-button">
+                                <span class="button-prev" onclick="$('.owl-related<?php echo $j?>').data('owlCarousel').prev();">
+                                    <!-- <i class="fa fa-angle-left"></i> -->
+                                </span>
+                                <span class="button-next" onclick="$('.owl-related<?php echo $j?>').data('owlCarousel').next();">
+                                    <!-- <i class="fa fa-angle-right"></i> -->
+                                </span>
                             </div>
+                        </div>
+                        <div class="owl-related<?php echo $j?>" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="row">
+                                    <?php $i = 0;?>
+                                    <?php foreach ($productCat as $value):?>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <div class="product-item">
+                                            <div class="product-item-thumbnail">
+                                                <div class="product-item-background">
+                                                    <div class="product-item-button">
+                                                        <a class="product-item-add" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
+                                                            <i class="fa fa-shopping-cart "></i>
+                                                        </a>
+                                                        <a class="product-item-view" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/<?php echo $value->image?>" alt="<?php echo $value->name?>">
+                                            </div>
+                                            <h3 class="product-item-name">
+                                                <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
+                                                    <?php echo $value->name?>
+                                                </a>
+                                            </h3>
+                                            <p class="product-item-price">
+                                                <?php echo $value->price ?></p>
+                                        </div>
+                                    </div>
+                                    <?php $i++;?>
+                                    <?php if ($i % 4 == 0 && $i < count($productCat)): ?>
+                                        </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="row">
+                                    <?php endif;?>
+                                    <?php endforeach;?>
+                                </div>
+                            </div>            
                         </div>
                     </div>
                 </div>
-
-                <!-- End Sản phẩm mới -->
                 <?php endif;?>
-
-                <?php if($banchay):?>
-                <!-- Sản phẩm bán chạy -->
-                <div class="best_sell block">
-                    <div class="heading heading_rel">
-                        <h2>Sản phẩm bán chạy</h2>
-                        <div class="view_all">
-                            <a href="san-pham-noi-bat">Xem tất cả
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="block-content">
-                        <div class="item">
-                            <div class="row">
-                                <?php foreach ($banchay as $value):?>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                    <div class="product-item">
-                                        <div class="product-item-thumbnail">
-                                            <div class="product-item-background">
-                                                <div class="product-item-button">
-
-
-
-
-                                                    <a class="product-item-add" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                        <i class="fa fa-shopping-cart "></i>
-                                                    </a>
-                                                    <a class="product-item-view" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                        <i class="fa fa-search"></i>
-                                                    </a>
-
-
-
-
-                                                </div>
-                                            </div>
-                                            <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/thumbs/<?php echo $value->image?>" alt="<?php echo $value->name?>">
-                                        </div>
-                                        <h3 class="product-item-name">
-                                            <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                <?php echo $value->name?>
-                                            </a>
-                                        </h3>
-                                        <p class="product-item-price">
-                                            <?php echo $value->price?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <?php endforeach;?>
-                            </div>
-                        </div>
+                <?php if($v->img_bottom != ''): ?>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <img src="<?php echo app()->baseUrl?>/uploads/<?php echo $v->img_bottom?>" alt="#"/>
                     </div>
                 </div>
-
-                <!-- End Sản phẩm bán chạy -->
-                <?php endif;?>
-            </div>
-        </div>
+                <?php endif; ?>
+                <?php $j++; ?>
+            <?php endforeach;?>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -255,9 +226,9 @@
                                             </div>
 
                                             <?php if ($i % 3 == 0): ?>
-                                                    <div style="clear:both;"></div>
-                                                </div>
-                                                <div class="item">
+                                            <div style="clear:both;"></div>
+                                        </div>
+                                        <div class="item">
                                             <?php endif; ?>
                                             <?php $i++; ?>
                                             <?php endforeach; ?>
@@ -280,7 +251,8 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 promotion">
                             <div class="heading">
                                 <h2>
-                                    <?php echo $category[1]->name ?></h2>
+                                    <?php echo $category[1]->name ?>
+                                </h2>
                                 <div class="heading-button">
                                     <span class="button-prev" onclick="$('.owl-promotion').data('owlCarousel').prev();">
                                         <i class="fa fa-angle-left"></i>
@@ -299,33 +271,33 @@
                                     <div class="owl-promotion" class="owl-carousel owl-theme">
                                         <div class="item">
                                             <?php foreach ($productCat1 as $value):?>
-                                                <div class="row product-item2">
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 item2_footer">
-                                                        <div class="product-item-thumbnail">
-                                                            <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>" title="<?php echo $value->name ?>">
-                                                                <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/thumbs/<?php echo $value->image?>" alt="<?php echo $value->name ?>">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                        <h3 class="product-item-name">
-                                                            <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                                <?php echo $value->name ?>
-                                                            </a>
-                                                        </h3>
-                                                        <p class="product-item-price">Liên hệ</p>
-                                                        <div class="product-item-button">
-                                                            <a class="product-item-view" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-                                                                <i class="fa fa-search"></i>
-                                                            </a>
-                                                        </div>
+                                            <div class="row product-item2">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 item2_footer">
+                                                    <div class="product-item-thumbnail">
+                                                        <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>" title="<?php echo $value->name ?>">
+                                                            <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/thumbs/<?php echo $value->image?>" alt="<?php echo $value->name ?>">
+                                                        </a>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <h3 class="product-item-name">
+                                                        <a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
+                                                            <?php echo $value->name ?>
+                                                        </a>
+                                                    </h3>
+                                                    <p class="product-item-price">Liên hệ</p>
+                                                    <div class="product-item-button">
+                                                        <a class="product-item-view" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <?php if ($i % 3 == 0): ?>
-                                                    <div style="clear:both;"></div>
-                                                </div>
-                                                <div class="item">
+                                            <div style="clear:both;"></div>
+                                        </div>
+                                        <div class="item">
                                             <?php endif; ?>
                                             <?php $i++; ?>
                                             <?php endforeach; ?>

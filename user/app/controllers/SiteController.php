@@ -29,7 +29,7 @@ class SiteController extends Controller
 		
 		$model = new Category1AR();
 		$model->hot = true;
-		$category = $model->getCategory(2);
+		$category = $model->getCategory(4);
 
 		//title
 
