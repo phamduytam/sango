@@ -217,10 +217,10 @@ class Category1Controller extends Controller
 	private function resizeImage($pathImage, $pos = 'left'){
 		if(is_file($pathImage)){
 			if ($pos == 'left') {
-				$w = 278; $h = 446;
+				$w = 358; $h = 256;
 			}
 			else {
-				$w = 1140; $h = 115;
+				$w = 332; $h = 217;
 			}
 // echo $pathImage;die;
 			// *** 1) Initialise / load image

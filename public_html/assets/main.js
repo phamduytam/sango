@@ -156,3 +156,18 @@ function viewGrid() {
 	$(".category-grid").show();
 	$(".category-list").hide();
 }
+
+
+$(document).ready(function(){
+	$('.cat_id').change(function(){
+		id = $(this).val();
+		var url = 'http://' + window.location.hostname;
+		$.ajax({
+			url: url + '/category/ajaxSub2/' + id,
+			success: function(html) {
+				$('.cat1_id').html(html);
+			}
+		});
+	});
+
+});

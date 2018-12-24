@@ -142,6 +142,7 @@ $this->description = $product->description;
 		<div class="owl-related">
 			<div class="item">
 				<div class="row">
+					<?php $i = 0;?>
 					<?php foreach ($lienquan as $value):?>
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 						<div class="product-item">
@@ -167,31 +168,13 @@ $this->description = $product->description;
 								<?php echo $value->price ?>></p>
 						</div>
 					</div>
+					<?php
+						if ($i == 8) {
+							echo '</div></div><div class="item"><div class="row">';
+						} 
+						$i++;
+					?>
 					<?php endforeach;?>
-				</div>
-			</div>
-			<div class="item">
-				<div class="row">
-					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-						<div class="product-item">
-							<div class="product-item-thumbnail">
-								<div class="product-item-background">
-									<div class="product-item-button">
-										<a class="product-item-view single_view" href="/noi-com-dien-sharp-1-8l">
-											<i class="fa fa-search"></i>
-										</a>
-									</div>
-								</div>
-								<img class="img-responsive" src="thumb/medium/products/noi-com-dien-sharp-ks-18etv-1-8l-9633-1345-1-zoom.jpg?v=1455677929687"
-									alt="Nồi cơm điện Sharp 1.8L">
-							</div>
-							<h3 class="product-item-name">
-								<a href="/noi-com-dien-sharp-1-8l">Nồi cơm điện Sharp 1.8L</a>
-							</h3>
-							<p class="product-item-price">Liên hệ</p>
-						</div>
-					</div>
-
 				</div>
 			</div>
 

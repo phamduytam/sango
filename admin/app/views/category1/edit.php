@@ -48,7 +48,7 @@
 <div class="form-group">
 	<?php echo $form->labelEx($model,'img_bottom'); ?>
 	<?php echo $form->fileField($model,'img_bottom', array('value' => $model->img_bottom)); ?>
-	<?php echo CHtml::image('/uploads/'.$model->img_bottom, 'img_bottom', array('width' => '500px', 'height' => '50px'))?>
+	<?php echo CHtml::image('/uploads/'.$model->img_bottom, 'img_bottom', array('width' => '50px', 'height' => '50px'))?>
 	<?php echo Chtml::hiddenField('hd_img_bottom', $model->img_bottom); ?>
 </div>
 

@@ -58,4 +58,17 @@ class CategoryController extends Controller
 		if($model->delete())
 			return true;
 	}
+
+	public function actionAjaxSub2($id) {
+		$model = new Category1AR();
+		$model->parent_id = $id;
+		$category = $model->findAllList();
+		$html = '';
+		if($category) {
+			foreach ($category as $value) {
+				$html.= '<option value="'.$value->id.'">'.$value->name.'</option>';
+			}
+		}
+		echo $html;
+	}
 }

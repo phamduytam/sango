@@ -40,7 +40,7 @@ class CongTrinhAR extends BaseAR
 			*/
 			array('name, content, alias, created', 'required', 'message' => 'Vui lòng nhập {attribute}'),
 			array('image', 'file', 'allowEmpty'=>true, 'types' => 'jpg, gif, png, jpeg', 'maxSize' => 2048*1000, 'wrongType' => 'Image không đúng định dạng ', 'tooLarge' => 'Image quá lớn'),
-			array('description, order, status, noibat', 'safe')
+			array('description, order, status, noibat, cat_id', 'safe')
 		);
 	}
 
@@ -69,7 +69,8 @@ class CongTrinhAR extends BaseAR
 			'order'			=> 'Thứ tự',
 			'status'		=> 'Tình trạng',
 			'created'		=> 'Ngày tạo',
-			'noibat'		=> 'Nỗi bật'
+			'noibat'		=> 'Nỗi bật',
+			'cat_id'		=> 'Danh mục sản phẩm'
 		);
 	}
 

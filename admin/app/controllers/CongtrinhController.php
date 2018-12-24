@@ -52,7 +52,12 @@ class CongtrinhController extends Controller
 
 			}
 		}
-		$this->render('add', compact('model'));
+
+		// danh muc 1
+		$model_cate = new Category1AR();
+		$category = $model_cate->getSub1();
+
+		$this->render('add', compact('model', 'category'));
 	}
 
 	public function actionEdit($id)
@@ -96,7 +101,12 @@ class CongtrinhController extends Controller
 					user()->setFlash('messages', 'Edit successful!!');
 			}
 		}
-		$this->render('edit', compact('model'));
+
+		// danh muc 1
+		$model_cate = new Category1AR();
+		$category = $model_cate->getSub1();
+
+		$this->render('edit', compact('model', 'category'));
 	}
 	public function actionDelete($id)
 	{

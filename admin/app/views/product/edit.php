@@ -57,8 +57,24 @@ $this->pageTitle = 'Product';
 
 <div class="form-group">
 	<?php echo $form->labelEx($model,'image'); ?>
-	<?php echo $form->fileField($model,'image', array('value' => $model->image)); ?>
-	<?php echo CHtml::image('/uploads/'.$model->image, 'image', array('width' => '50px', 'height' => '50px'))?>
+	<?php
+    $this->widget('CMultiFileUpload', array(
+        'model'=>$model,
+        'name' => 'image',
+        'max'=>10,
+        'accept' =>'jpg|jpeg|png|gif',
+        'duplicate' => 'Duplicate file!', 
+		'denied' => 'Invalid file type',
+		'htmlOptions' => array('multiple' => 'multiple')
+    ));  
+    echo $form->error($model,'image'); 
+	?>
+	<?php 
+		$images = json_decode($model->image);
+		foreach($images as $img):
+	?>
+	<?php echo CHtml::image('/uploads/'.$img, 'image', array('width' => '50px', 'height' => '50px'))?><br>
+		<?php endforeach;?>
 	<?php echo Chtml::hiddenField('hd_img', $model->image); ?>
 </div>
 

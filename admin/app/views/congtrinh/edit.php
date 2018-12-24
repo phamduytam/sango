@@ -13,11 +13,16 @@
 	?>
 <?php
 	$form = $this->beginWidget('TbActiveForm', array(
-		'action'=>sslUrl('tintuc/edit/'.$model->id),
+		'action'=>sslUrl('congtrinh/edit/'.$model->id),
 		'id' => 'add-form',
 		'htmlOptions'=>array('enctype' => 'multipart/form-data')
 	));
 ?>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'cat_id'); ?>
+	<?php echo $form->dropDownList($model,'cat_id',array('0'=>'Danh mục cấp 1') + CHtml::listData($category, 'id', 'name'), array('class' => 'form-control cat_id')); ?>
+</div>
 
 <div class="form-group">
 	<?php echo $form->labelEx($model,'name'); ?>
@@ -40,7 +45,7 @@
 	<?php echo $form->labelEx($model,'content'); ?>
 	<?php echo $form->textArea($model,'content', array('class' => 'form-control')); ?>
 	<script>
-	editor = CKEDITOR.replace( 'TinTucAR_content', {
+	editor = CKEDITOR.replace( 'CongTrinhAR_content', {
 		filebrowserBrowseUrl: '/browser/browse.php',
 		filebrowserUploadUrl: '/uploader/upload.php',
 		filebrowserWindowWidth: '640',

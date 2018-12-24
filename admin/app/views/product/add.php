@@ -46,9 +46,36 @@ $this->pageTitle = 'Product';
 </div>
 
 <div class="form-group">
-	<?php echo $form->labelEx($model,'baohanh'); ?>
-	<?php echo $form->textField($model,'baohanh', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập bảo hành')); ?>
+	<?php echo $form->labelEx($model,'khuyenmai'); ?>
+	<?php echo $form->textField($model,'khuyenmai', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập giá khuyến mãi')); ?>
 </div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'baohanh'); ?>
+	<?php echo $form->textField($model,'baohanh', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['baohanh']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'color'); ?>
+	<?php echo $form->textField($model,'color', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['color']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'quycach'); ?>
+	<?php echo $form->textField($model,'quycach', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['quycach']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'chongtray'); ?>
+	<?php echo $form->textField($model,'chongtray', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['chongtray']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'xuatxu'); ?>
+	<?php echo $form->textField($model,'xuatxu', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['xuatxu']))); ?>
+</div>
+
+
 
 <div class="form-group">
 	<?php echo $form->labelEx($model,'description'); ?>
@@ -57,7 +84,19 @@ $this->pageTitle = 'Product';
 
 <div class="form-group">
 	<?php echo $form->labelEx($model,'image'); ?>
-	<?php echo $form->fileField($model,'image'); ?>
+	<!-- <?php echo $form->fileField($model,'image[]', array('multiple' => 'multiple')); ?> -->
+	<?php
+    $this->widget('CMultiFileUpload', array(
+        'model'=>$model,
+        'name' => 'image',
+        'max'=>10,
+        'accept' =>'jpg|jpeg|png|gif',
+        'duplicate' => 'Duplicate file!', 
+		'denied' => 'Invalid file type',
+		'htmlOptions' => array('multiple' => 'multiple')
+    ));  
+    echo $form->error($model,'image'); 
+    ?>  
 </div>
 
 <div class="form-group" style="overflow: hidden">

@@ -8,6 +8,7 @@ class CongTrinhAR extends BaseAR
 	 */
 	public $word;
 	public $noibat;
+	public $cat_id;
 
 	public static function model($className=__CLASS__)
 	{
@@ -42,7 +43,7 @@ class CongTrinhAR extends BaseAR
 			*/
 			array('name, content, alias, created', 'required', 'message' => 'Vui lòng nhập {attribute}'),
 			array('image', 'file', 'allowEmpty'=>true, 'types' => 'jpg, gif, png, jpeg', 'maxSize' => 2048*1000, 'wrongType' => 'Image không đúng định dạng ', 'tooLarge' => 'Image quá lớn'),
-			array('description, order, status, noibat', 'safe')
+			array('description, order, status, noibat, cat_id', 'safe')
 		);
 	}
 
@@ -148,6 +149,8 @@ class CongTrinhAR extends BaseAR
 		$criteria->addCondition('t.status = :status')->params[':status'] = 1;
 		if (strlen($this->noibat))
 			$criteria->addCondition('t.noibat = :noibat')->params[':noibat'] = 1;
+		if(strlen($this->cat_id) > 0)
+			$criteria->addCondition('t.cat_id = :cat_id')->params[':cat_id'] = $this->cat_id;
 		$criteria->order = 'id DESC';
 		$criteria->limit = $limit;
 		return $this->findAll($criteria);

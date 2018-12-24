@@ -135,4 +135,10 @@ class Category1AR extends BaseAR
 		$criteria = $this->getCriteriaListCategory($limit);
 		return $this->findAll($criteria);
 	}
+
+	public function findAllList()
+	{
+		$criteria = $this->getCriteriaListCategory();
+		return $this->findAll($criteria);
+	}
 }

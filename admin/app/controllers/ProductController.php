@@ -30,27 +30,36 @@ class ProductController extends Controller
 			$model->attributes = $data;
 			if(isset($_POST['tagList']))
 				$model->tag_id = implode(',', $_POST['tagList']);
+			// var_dump(CUploadedFile::getInstancesByName('image'));die();
 			$model->alias = convert($data['name']);
 			$model->created = date('Y-m-d H:i:s', time());
 
 			if($model->validate())
 			{
-				$imageUploadFile = CUploadedFile::getInstance($model, 'image');
-				if($imageUploadFile !== null){ // only do if file is really uploaded
-					$imageFileName = time().$imageUploadFile->name;
-					$model->image = $imageFileName;
-				}
-				if($model->save()){
-					if($imageUploadFile !== null) // validate to save file
-					{
+				$imageUploadFile = CUploadedFile::getInstancesByName('image');
+				// if($imageUploadFile !== null){ // only do if file is really uploaded
+				// 	$imageFileName = time().$imageUploadFile->name;
+				// 	$model->image = $imageFileName;
+				// }
+				
+				if($imageUploadFile !== null) // validate to save file
+				{
+					$imgNameList = [];
+					foreach($imageUploadFile as $img) {
+						$imageFileName = time().$img->name;
+						array_push($imgNameList, $imageFileName);
 						$pathImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].$imageFileName;
 						$pathThumbImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].'thumbs/'.$imageFileName;
 
-						$imageUploadFile->saveAs($pathImage);
+						$img->saveAs($pathImage);
 						// resize
 						$this->resizeImage($pathImage);
 						$this->createThumbs($pathImage, $pathThumbImage);
 					}
+					$model->image = json_encode($imgNameList);
+				}
+
+				if($model->save()) {
 					$this->redirect(url('/product/add'));
 					user()->setFlash('messages', 'Add successful!!');
 				}
@@ -98,7 +107,7 @@ class ProductController extends Controller
 			else
 				$model->tag_id = '';
 			$model->created = date('Y-m-d H:i:s', time());
-			$imageUploadFile = CUploadedFile::getInstance($model, 'image');
+			$imageUploadFile = CUploadedFile::getInstancesByName('image');
 			if($imageUploadFile == null){
 				$model->image = $_POST['hd_img'];
 			}
@@ -107,16 +116,23 @@ class ProductController extends Controller
 				if($imageUploadFile !== null) // validate to save file
 				{
 					$image_old = $model->image;
-					$imageFileName = time().$imageUploadFile->name;
-					$model->image = $imageFileName;
-					$pathImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].$imageFileName;
-					$pathThumbImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].'thumbs/'.$imageFileName;
-					$ret = $imageUploadFile->saveAs($pathImage);
-					//resize
-					$this->resizeImage($pathImage);
-					$this->createThumbs($pathImage, $pathThumbImage);
+					$imgNameList = [];
+					foreach($imageUploadFile as $img) {
+						$imageFileName = time().$img->name;
+						array_push($imgNameList, $imageFileName);
+						$pathImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].$imageFileName;
+						$pathThumbImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].'thumbs/'.$imageFileName;
+						$ret = $img->saveAs($pathImage);
+						//resize
+						$this->resizeImage($pathImage);
+						$this->createThumbs($pathImage, $pathThumbImage);
+					}
+					$model->image = json_encode($imgNameList);
 					if($ret) {
-						deleteImage(dirname(dirname(app()->basePath)) . app()->params['imagePath'], $image_old);
+						$images = json_decode($image_old);
+						foreach($images as $img) {
+							deleteImage(dirname(dirname(app()->basePath)) . app()->params['imagePath'], $img);
+						}
 					}
 				}
 

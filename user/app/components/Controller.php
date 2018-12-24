@@ -290,6 +290,15 @@ class Controller extends CController
 		return false;
 	}
 
+	public function getCongTrinhByCatId($cat_id, $limit = 6) {
+		$model = new CongTrinhAR();
+		$model->cat_id = $cat_id;
+		$congtrinh = $model->getList($limit);
+		if($congtrinh)
+			return $congtrinh;
+		return false;
+	}
+
 	public function getProductByCatIdLast($cat_id) {
 		$model = new ProductAR();
 		$model->cat_id = $cat_id;
@@ -308,5 +317,10 @@ class Controller extends CController
 		if($product)
 			return $product;
 		return false;
+	}
+
+	public function getImageSP($imgStr) {
+		$images = json_decode($imgStr);
+		return $images[0];
 	}
 }

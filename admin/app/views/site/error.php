@@ -1,7 +1,7 @@
 <?php $this->pageTitle = ' エラー';?>
 <?php
 $defaultMessages = array(
-	400=>'パラメーターに誤りがあります。',
+	400=>'Image qua lớn (tối đa 2MB)',
 	404=>'既に終了したか存在しないページです。',
 	500=>'予期しないエラーが発生しました。',
 );

@@ -26,7 +26,7 @@ class ProductController extends Controller
 		// san pham lien quan
 		$model->id = $id;
 		$model->cat_id = $product->cat_id;
-		$lienquan = $model->getListOrther(10);
+		$lienquan = $model->getListOrther(8);
 
 		$this->breadcrumbs = array(
 			'Sản phẩm' => url('san-pham.html'),
