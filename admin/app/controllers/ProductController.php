@@ -5,7 +5,7 @@ class ProductController extends Controller
 	{
 		$this->pageTitle = 'Sản phẩm';
 		$this->breadcrumb = array(
-			'Sản phẩm' => ''	
+			'Sản phẩm' => ''
 			);
 		$word = request()->getQuery('word', '');
 		$product = new ProductAR("searchListProduct");
@@ -19,7 +19,7 @@ class ProductController extends Controller
 		$this->pageTitle = 'Sản phẩm';
 		$this->breadcrumb = array(
 			'Sản phẩm'	=> app()->baseUrl.'/product',
-			'Add'		=> ''	
+			'Add'		=> ''
 			);
 
 		$model = new ProductAR();
@@ -41,7 +41,7 @@ class ProductController extends Controller
 				// 	$imageFileName = time().$imageUploadFile->name;
 				// 	$model->image = $imageFileName;
 				// }
-				
+
 				if($imageUploadFile !== null) // validate to save file
 				{
 					$imgNameList = [];
@@ -72,7 +72,7 @@ class ProductController extends Controller
 		$category = $model_cate->getSub1();
 
 		// danh muc 2
-		$category1 = $model_cate->getSub2();		
+		$category1 = $model_cate->getSub2();
 
 		// tag list
 		$model_tag = new TagAR();
@@ -86,7 +86,7 @@ class ProductController extends Controller
 		$this->pageTitle = 'Sản phẩm';
 		$this->breadcrumb = array(
 			'Sản phẩm'	=> app()->baseUrl.'/product',
-			'Edit'		=> ''	
+			'Edit'		=> ''
 			);
 		$product = new ProductAR();
 		$model = $product->findByPk($id);
@@ -127,11 +127,13 @@ class ProductController extends Controller
 						$this->resizeImage($pathImage);
 						$this->createThumbs($pathImage, $pathThumbImage);
 					}
-					$model->image = json_encode($imgNameList);
-					if($ret) {
-						$images = json_decode($image_old);
-						foreach($images as $img) {
-							deleteImage(dirname(dirname(app()->basePath)) . app()->params['imagePath'], $img);
+					if (count($imgNameList) > 0) {
+						$model->image = json_encode($imgNameList);
+						if($ret) {
+							$images = json_decode($image_old);
+							foreach($images as $img) {
+								deleteImage(dirname(dirname(app()->basePath)) . app()->params['imagePath'], $img);
+							}
 						}
 					}
 				}
@@ -149,7 +151,7 @@ class ProductController extends Controller
 		$category = $model_cate->getSub1();
 
 		// danh muc 2
-		$category1 = $model_cate->getSub2();		
+		$category1 = $model_cate->getSub2();
 
 		$this->render('edit', compact('model', 'category', 'category1', 'tags', 'tags_checked'));
 	}

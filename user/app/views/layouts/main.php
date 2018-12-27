@@ -55,6 +55,7 @@
 
     <script src='<?php echo app()->baseUrl;?>/assets/themes_support/common.js?4' type='text/javascript'></script>
     <script src='<?php echo app()->baseUrl;?>/assets/themes_support/customer.js?4' type='text/javascript'></script>
+    <script src='<?php echo app()->baseUrl;?>/assets/jquery.elevatezoom.js' type='text/javascript'></script>
     <!-- Bootstrap -->
     <script src='<?php echo app()->baseUrl;?>/assets/main.js?1493875157619' type='text/javascript'></script>
     <link href='<?php echo app()->baseUrl;?>/assets/bw-statistics-style.css?1493875157619' rel='stylesheet' type='text/css' />

@@ -51,8 +51,47 @@ $this->pageTitle = 'Product';
 </div>
 
 <div class="form-group">
+	<?php echo $form->labelEx($model,'color'); ?>
+	<?php echo $form->textField($model,'color', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['color']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'quycach'); ?>
+	<?php echo $form->textField($model,'quycach', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['quycach']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'chongtray'); ?>
+	<?php echo $form->textField($model,'chongtray', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['chongtray']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'xuatxu'); ?>
+	<?php echo $form->textField($model,'xuatxu', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['xuatxu']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'tinhtrang'); ?>
+	<?php echo $form->textField($model,'tinhtrang', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['tinhtrang']))); ?>
+</div>
+
+<div class="form-group">
+	<?php echo $form->labelEx($model,'ungdung'); ?>
+	<?php echo $form->textField($model,'ungdung', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['ungdung']))); ?>
+</div>
+
+<div class="form-group">
 	<?php echo $form->labelEx($model,'description'); ?>
 	<?php echo $form->textArea($model,'description', array('class' => 'form-control', 'rows' => '5')); ?>
+	<script>
+	editor = CKEDITOR.replace( 'ProductAR_description', {
+		filebrowserBrowseUrl: '/browser/browse.php',
+		filebrowserUploadUrl: '/uploader/upload.php',
+		filebrowserWindowWidth: '640',
+		filebrowserWindowHeight: '480'
+	});
+	CKFinder.setupCKEditor( editor, '<?php echo app()->baseUrl?>/js/ckfinder/' );
+	</script>
 </div>
 
 <div class="form-group">
@@ -63,18 +102,18 @@ $this->pageTitle = 'Product';
         'name' => 'image',
         'max'=>10,
         'accept' =>'jpg|jpeg|png|gif',
-        'duplicate' => 'Duplicate file!', 
+        'duplicate' => 'Duplicate file!',
 		'denied' => 'Invalid file type',
 		'htmlOptions' => array('multiple' => 'multiple')
-    ));  
-    echo $form->error($model,'image'); 
+    ));
+    echo $form->error($model,'image');
 	?>
-	<?php 
+	<?php
 		$images = json_decode($model->image);
 		foreach($images as $img):
 	?>
-	<?php echo CHtml::image('/uploads/'.$img, 'image', array('width' => '50px', 'height' => '50px'))?><br>
-		<?php endforeach;?>
+		<?php echo CHtml::image('/uploads/'.$img, 'image', array('width' => '50px', 'height' => '50px'))?><br>
+	<?php endforeach;?>
 	<?php echo Chtml::hiddenField('hd_img', $model->image); ?>
 </div>
 

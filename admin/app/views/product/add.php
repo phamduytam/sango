@@ -75,11 +75,28 @@ $this->pageTitle = 'Product';
 	<?php echo $form->textField($model,'xuatxu', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['xuatxu']))); ?>
 </div>
 
+<div class="form-group">
+	<?php echo $form->labelEx($model,'tinhtrang'); ?>
+	<?php echo $form->textField($model,'tinhtrang', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['tinhtrang']))); ?>
+</div>
 
+<div class="form-group">
+	<?php echo $form->labelEx($model,'ungdung'); ?>
+	<?php echo $form->textField($model,'ungdung', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['ungdung']))); ?>
+</div>
 
 <div class="form-group">
 	<?php echo $form->labelEx($model,'description'); ?>
 	<?php echo $form->textArea($model,'description', array('class' => 'form-control', 'rows' => '5')); ?>
+	<script>
+	editor = CKEDITOR.replace( 'ProductAR_description', {
+		filebrowserBrowseUrl: '/browser/browse.php',
+		filebrowserUploadUrl: '/uploader/upload.php',
+		filebrowserWindowWidth: '640',
+		filebrowserWindowHeight: '480'
+	});
+	CKFinder.setupCKEditor( editor, '<?php echo app()->baseUrl?>/js/ckfinder/' );
+	</script>
 </div>
 
 <div class="form-group">
@@ -91,12 +108,12 @@ $this->pageTitle = 'Product';
         'name' => 'image',
         'max'=>10,
         'accept' =>'jpg|jpeg|png|gif',
-        'duplicate' => 'Duplicate file!', 
+        'duplicate' => 'Duplicate file!',
 		'denied' => 'Invalid file type',
 		'htmlOptions' => array('multiple' => 'multiple')
-    ));  
-    echo $form->error($model,'image'); 
-    ?>  
+    ));
+    echo $form->error($model,'image');
+    ?>
 </div>
 
 <div class="form-group" style="overflow: hidden">

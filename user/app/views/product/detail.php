@@ -7,45 +7,24 @@ $this->description = $product->description;
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 product-image">
 				<div class="elevate-image">
-					<img id="zoom" class="img-responsive" src="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>" data-zoom="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>"
+					<img id="zoom" class="img-responsive" src="<?php echo app()->baseUrl; ?>/uploads/<?php echo $this->getImageSP($product->image);?>" data-zoom="<?php echo app()->baseUrl; ?>/uploads/larges/<?php echo $this->getImageSP($product->image);?>"
 						alt="<?php echo $product->name ?>">
 
 				</div>
 				<div id="gallery_01">
-					<div id="owl-product" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
-						<div class="owl-wrapper-outer">
-							<div class="owl-wrapper" style="width: 380px; left: 0px; display: block; transition: all 1000ms ease; transform: translate3d(0px, 0px, 0px);">
-								<div class="owl-item" style="width: 95px;">
-									<div class="item">
-										<a href="javascript:void(0)" data-zoom-image="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>" data-image="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>">
-											<img class="zoom1" src="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>" alt="<?php echo $product->name ?>">
-										</a>
-									</div>
-								</div>
-								<div class="owl-item" style="width: 95px;">
-									<div class="item">
-										<a href="javascript:void(0)" data-zoom-image="" data-image="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>">
-											<img class="zoom1" src="<?php echo app()->baseUrl; ?>/uploads/<?php echo $product->image?>" alt="<?php echo $product->name ?>">
-										</a>
-									</div>
-								</div>
-							</div>
+					<div id="owl-product">
+						<?php
+							$images = json_decode($product->image);
+							$i = 0;
+							foreach($images as $img):
+						?>
+						<div class="item <?php echo $i == 0 ? 'active' : '' ?>">
+							<a href="javascript:void(0)" data-zoom-image="<?php echo app()->baseUrl; ?>/uploads/larges/<?php echo $img?>" data-image="<?php echo app()->baseUrl; ?>/uploads/thumbs/<?php echo $img?>">
+								<img class="zoom1" src="<?php echo app()->baseUrl; ?>/uploads/thumbs/<?php echo $img?>" alt="<?php echo $product->name ?>">
+							</a>
 						</div>
-						<div class="owl-controls" style="display: none;">
-							<div class="owl-pagination">
-								<div class="owl-page">
-									<span class=""></span>
-								</div>
-							</div>
-							<div class="owl-buttons">
-								<div class="owl-prev">
-									<i class="fa fa-angle-left"></i>
-								</div>
-								<div class="owl-next">
-									<i class="fa fa-angle-right "></i>
-								</div>
-							</div>
-						</div>
+						<?php $i++;?>
+						<?php endforeach;?>
 					</div>
 				</div>
 			</div>
@@ -171,7 +150,7 @@ $this->description = $product->description;
 					<?php
 						if ($i == 8) {
 							echo '</div></div><div class="item"><div class="row">';
-						} 
+						}
 						$i++;
 					?>
 					<?php endforeach;?>
