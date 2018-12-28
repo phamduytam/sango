@@ -27,9 +27,9 @@ $(document).ready(function(){
 
 	// 	var LiN = $(this).find('li').length;
 
-	// 	if( LiN > 4){    
+	// 	if( LiN > 4){
 	// 		$('li', this).eq(6).nextAll().hide().addClass('toggleable');
-	// 		$(this).append('<li class="more icon"><a>XEM THÊM</a></li>');    
+	// 		$(this).append('<li class="more icon"><a>XEM THÊM</a></li>');
 	// 	}
 
 	// });
@@ -37,15 +37,15 @@ $(document).ready(function(){
 
 	// $('ul#show_cate').on('click','.more', function(){
 
-	// 	if( $(this).hasClass('less') ){    
-	// 		$(this).html('<li><a>XEM THÊM</a></li>').removeClass('less');    
+	// 	if( $(this).hasClass('less') ){
+	// 		$(this).html('<li><a>XEM THÊM</a></li>').removeClass('less');
 	// 	}else{
-	// 		$(this).html('<a>THU GỌN</>').addClass('less'); 
+	// 		$(this).html('<a>THU GỌN</>').addClass('less');
 	// 	}
 
 	// 	$(this).siblings('li.toggleable').slideToggle();
 
-	// }); 
+	// });
 
 
 
@@ -119,7 +119,7 @@ $(document).ready(function(){
 		viewGrid();
 	});
 	$("#owl-product").owlCarousel({
-		autoPlay: 2000,
+		autoPlay: false,
 		navigation: true,
 		navigationText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right '></i>"],
 		items : 5,
@@ -127,6 +127,10 @@ $(document).ready(function(){
 		itemsDesktopSmall : [979,5],
 		itemsTablet: [768,5],
 		itemsMobile: [480,4]
+	});
+	$('.zoom1').click(function() {
+		var _imgSrc = $(this).parent().attr('data-zoom-image');
+		$('#zoom').attr('src', _imgSrc);
 	});
 });
 function quantityChange(change) {

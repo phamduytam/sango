@@ -133,8 +133,8 @@ span#click_show { color: #c7c7c7; position: absolute;right: 10px;top: 19px;curso
 .product-item-add,.product-item-view{height:36px;width:36px;float:left;line-height:36px;color:#fff;text-align:center;background-color:#ef3737;border-radius:50%}
 .product-item-add{margin-right:10px}
 .product-item-add:hover,.product-item-view:hover{color:#fff}
-.product-item-name{word-break: break-word; height:44px;overflow:hidden;}
-.product-item-name a{display:block;margin:0;padding:0;font-size:15px;line-height:44px;font-weight:400;color:#404040}
+.product-item-name{word-break: break-word; overflow:hidden; margin-top: 10px}
+.product-item-name a{display:block;margin:0;padding:0;font-size:15px;font-weight:400;color:#404040}
 .product-item-price{height:21px;overflow:hidden;margin-bottom:12px;font-size:15px;font-weight:700;color:#ef3737}
 .product-item-price-sale{height:18px;overflow:hidden;margin-bottom:12px;font-size:13px;color:#9a9a9a;text-decoration:line-through}
 .product-item2{margin-bottom:30px}
@@ -316,7 +316,7 @@ select.form-text{height:45px}
 .product-price{padding:0;margin:0 0 10px;font-size:15px;color:#ef3737}
 .product-price-on{margin-right:10px}
 .product-price-sale{color:#959595;text-decoration:line-through}
-.product-description{padding:12px 0;font-size:14px;line-height:16px;color:#404040;border-bottom:1px solid #ebebeb;border-top:1px solid #ebebeb}
+.product-description{padding:12px 0;font-size:14px;line-height:16px;color:#404040; margin-top: 15px;}
 .product-select-group{width:100%;overflow:hidden;padding:15px 0 25px;border-bottom:1px solid #ebebeb;margin-bottom:20px}
 .product-select-group label{width:100%;font-size:14px;font-weight:400;color:#363533;line-height:30px}
 .product-quantity-group{width:50%;float:left}
@@ -552,6 +552,17 @@ div#mail-box {
 	text-align: center;
 }
 
+.a_right {
+	text-align: right;
+}
+
+.f_right {
+	float: right;
+}
+
+.pr10 {
+	padding-right: 10px;
+}
 .pb10 {
 	padding-bottom: 10px;
 }
@@ -605,6 +616,10 @@ div#mail-box {
 	color: red;
 }
 
+.newTpl {
+	color: black;
+}
+
 .newTpl .product-item-thumbnail {
 	padding: 0;
 	border: 1px solid #ebebeb;
@@ -616,7 +631,14 @@ div#mail-box {
 }
 
 .newTpl .product-item-name {
+
 }
 .newTpl .product-item-name a{
 	font-weight: bold;
 }
+
+.details-pro {
+	color: black;
+}
+
+.details-pro .product-name{ font-size:18px; font-weight: bold;}

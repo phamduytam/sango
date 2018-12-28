@@ -7,7 +7,7 @@ $this->description = $product->description;
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 product-image">
 				<div class="elevate-image">
-					<img id="zoom" class="img-responsive" src="<?php echo app()->baseUrl; ?>/uploads/<?php echo $this->getImageSP($product->image);?>" data-zoom="<?php echo app()->baseUrl; ?>/uploads/larges/<?php echo $this->getImageSP($product->image);?>"
+					<img id="zoom" class="img-responsive" src="<?php echo app()->baseUrl; ?>/uploads/<?php echo $this->getImageSP($product->image);?>" data-zoom="<?php echo app()->baseUrl; ?>/uploads/<?php echo $this->getImageSP($product->image);?>"
 						alt="<?php echo $product->name ?>">
 
 				</div>
@@ -19,7 +19,7 @@ $this->description = $product->description;
 							foreach($images as $img):
 						?>
 						<div class="item <?php echo $i == 0 ? 'active' : '' ?>">
-							<a href="javascript:void(0)" data-zoom-image="<?php echo app()->baseUrl; ?>/uploads/larges/<?php echo $img?>" data-image="<?php echo app()->baseUrl; ?>/uploads/thumbs/<?php echo $img?>">
+							<a href="javascript:void(0)" data-zoom-image="<?php echo app()->baseUrl; ?>/uploads/<?php echo $img?>" data-image="<?php echo app()->baseUrl; ?>/uploads/thumbs/<?php echo $img?>">
 								<img class="zoom1" src="<?php echo app()->baseUrl; ?>/uploads/thumbs/<?php echo $img?>" alt="<?php echo $product->name ?>">
 							</a>
 						</div>
@@ -32,55 +32,53 @@ $this->description = $product->description;
 				<h1 itemprop="name" class="product-name">
 					<?php echo $product->name ?>
 				</h1>
-				<div class="price-box" itemscope="" itemtype="http://schema.org/Offer">
+				<div class="price-box">
+					<?php
+						if ($product->khuyenmai > 0):
+					?>
+					<!-- Giá gốc -->
+					<span class="old-price">
+						Giá:
+						<del class="price product-price-old sale" itemprop="priceSpecification"><?php echo number_format($product->price) ?></del>
+						<meta itemprop="priceCurrency" content="VND">
+					</span><br>
+					<?php endif;?>
 					<span class="special-price">
+						<?php echo $product->khuyenmai > 0 ? 'Giá khuyến mãi: ' : 'Giá: ';?>
 						<span class="price product-price" itemprop="price">
-							<?php echo $product->price ?>
+							<?php echo $product->khuyenmai > 0 ? number_format($product->khuyenmai) : number_format($product->price) ?>
 						</span>
 						<meta itemprop="priceCurrency" content="VND">
 					</span>
 					<!-- Giá Khuyến mại -->
-					<!-- <span class="old-price">
-						<del class="price product-price-old sale" itemprop="priceSpecification">259.000₫</del>
-						<meta itemprop="priceCurrency" content="VND">
-					</span> -->
-					<!-- Giá gốc -->
+
 				</div>
+				<?php if ($product->masp): ?>
+					<div>Mã sản phẩm: <?php echo $product->masp; ?></div>
+				<?php endif; ?>
+				<?php if ($product->color): ?>
+					<div>Màu: <?php echo $product->color; ?></div>
+				<?php endif; ?>
+				<?php if ($product->quycach): ?>
+					<div>Quy cách: <?php echo $product->quycach; ?></div>
+				<?php endif; ?>
+				<?php if ($product->chongtray): ?>
+					<div>Chống trầy: <?php echo $product->chongtray; ?></div>
+				<?php endif; ?>
+				<?php if ($product->xuatxu): ?>
+					<div>Xuất xứ: <?php echo $product->xuatxu; ?></div>
+				<?php endif; ?>
+				<?php if ($product->baohanh): ?>
+					<div>Bảo hành: <?php echo $product->baohanh; ?></div>
+				<?php endif; ?>
+				<?php if ($product->tinhtrang): ?>
+					<div>Tình trạng: <span class="product-price"><?php echo $product->tinhtrang; ?></span></div>
+				<?php endif; ?>
+				<?php if ($product->ungdung): ?>
+					<div>Ứng dụng: <?php echo $product->ungdung; ?></div>
+				<?php endif; ?>
 				<div class="product-description">
 					<?php echo $product->description ?>
-				</div>
-				<div class="form-product">
-					<form id="form-product">
-						<div class="product-select-group">
-							<div class="product-quantity-group form_button_details">
-								<label for="quantity">Số lượng</label>
-								<span class="product-quantity-up" onclick="quantityChange('down');">
-									<i class="fa fa-minus"></i>
-								</span>
-								<input type="numbers" name="quantity" class="product-quantity" value="1">
-								<span class="product-quantity-down" onclick="quantityChange('up');">
-									<i class="fa fa-plus"></i>
-								</span>
-							</div>
-							<div class="selector-wrapper clearfix" style="display: none;">
-								<label for="product-select-option-0">Title</label>
-								<select class="single-option-selector" data-option="option1" id="product-select-option-0">
-									<option value="Default Title">Default Title</option>
-								</select>
-							</div>
-							<select id="product-select" name="variantId" style="display: none;">
-
-								<option lỗi="" liquid:="" unknown="" operator="" roduct="" value="2185016">Default Title - 169.000₫</option>
-
-							</select>
-						</div>
-						<div>
-							<a href="javascript:void(0)" onclick="Bizweb.addItemFromForm('form-product', cartItem);" class="product-item-add2">
-								<i class="fa fa-shopping-cart"></i>
-								<span class="btn-cart">Cho vào giỏ hàng</span>
-							</a>
-						</div>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -123,32 +121,48 @@ $this->description = $product->description;
 				<div class="row">
 					<?php $i = 0;?>
 					<?php foreach ($lienquan as $value):?>
-					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 newTpl">
 						<div class="product-item">
 							<div class="product-item-thumbnail">
-								<div class="product-item-background">
-									<div class="product-item-button">
-										<a class="product-item-add" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-											<i class="fa fa-shopping-cart "></i>
-										</a>
-										<a class="product-item-view" href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
-											<i class="fa fa-search"></i>
-										</a>
-									</div>
-								</div>
-								<img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/<?php echo $value->image?>" alt="<?php echo $value->name?>">
+								<a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>"><img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/<?php echo $this->getImageSP($value->image);?>" alt="<?php echo $value->name?>">
+								</a>
 							</div>
 							<h3 class="product-item-name">
 								<a href="<?php echo url('/chi-tiet/' . $value->id . '/' . $value->alias)?>">
 									<?php echo $value->name?>
 								</a>
 							</h3>
-							<p class="product-item-price">
-								<?php echo $value->price ?>></p>
+							<div class="price-box">
+								<?php
+									if ($value->khuyenmai > 0):
+								?>
+								<!-- Giá Khuyến mại -->
+								<span class="special-price">
+									<span class="price product-price" itemprop="price">
+										<?php echo $value->khuyenmai > 0 ? number_format($value->khuyenmai) : number_format($value->price) ?>
+									</span>
+									<meta itemprop="priceCurrency" content="VND">
+								</span>
+								<!-- Giá gốc -->
+								<span class="old-price a_right f_right pr10">
+									<del class="price product-price-old sale" itemprop="priceSpecification"><?php echo number_format($value->price) ?></del>
+									<meta itemprop="priceCurrency" content="VND">
+								</span>
+								<?php endif;?>
+							</div>
+							<?php if ($value->quycach): ?>
+								<div>Quy cách: <?php echo $value->quycach; ?></div>
+							<?php endif; ?>
+							<?php if ($value->color): ?>
+								<div>Màu: <?php echo $value->color; ?></div>
+							<?php endif; ?>
+							<?php if ($value->ungdung): ?>
+								<div>Ứng dụng: <?php echo $value->ungdung; ?></div>
+							<?php endif; ?>
 						</div>
 					</div>
 					<?php
-						if ($i == 8) {
+						if ($i == 6) {
 							echo '</div></div><div class="item"><div class="row">';
 						}
 						$i++;
