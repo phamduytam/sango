@@ -33,10 +33,11 @@
 
 			<div class="row">
 				<?php
+				$i = 0;
 				foreach ($ortherList as $v):
 				?>
-					<div class="col-lg-6 col-md-6">
-						<a href="<?php echo app()->baseUrl;?>/tin-tuc/chi-tiet/<?php echo $v->id?>/<?php echo $v->alias?>.html">
+					<div class="col-lg-6 col-md-6 mb10">
+						<a href="<?php echo app()->baseUrl;?>/cong-trinh/chi-tiet/<?php echo $v->id?>/<?php echo $v->alias?>.html">
 
 							<img src="<?php echo app()->baseUrl;?>/uploads/<?php echo $v->image?>" alt="<?php echo $v->name?>">
 
@@ -50,12 +51,18 @@
 							</span>
 						</p>
 						<h3>
-							<a href="<?php echo app()->baseUrl;?>/tin-tuc/chi-tiet/<?php echo $v->id?>/<?php echo $v->alias?>.html" title="<?php echo $v->name?>">
-								<?php echo $v->name?>
+							<a href="<?php echo app()->baseUrl;?>/cong-trinh/chi-tiet/<?php echo $v->id?>/<?php echo $v->alias?>.html" title="<?php echo $v->name?>">
+								<?php echo $this->cutString($v->name, 55)?>
 							</a>
 						</h3>
 					</div>
-					<?php endforeach;?>
+					<?php
+						$i++;
+						if ($i %2 == 0) {
+							echo '</div><div class="row">';
+						}
+					 endforeach;
+					?>
 			</div>
 
 		</div>

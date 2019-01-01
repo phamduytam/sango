@@ -43,9 +43,11 @@ class CongtrinhController extends Controller
 					if($imageUploadFile !== null) // validate to save file
 					{
 						$pathImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].$imageFileName;
+						// $pathThumbImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].'thumbs/'.$imageFileName;
 						$imageUploadFile->saveAs($pathImage);
 						// resize
 						$this->resizeImage($pathImage);
+						// $this->createThumbs($pathImage, $pathThumbImage);
 					}
 					user()->setFlash('messages', 'Add successful!!');
 				}
@@ -90,9 +92,11 @@ class CongtrinhController extends Controller
 					$imageFileName = time().$imageUploadFile->name;
 					$model->image = $imageFileName;
 					$pathImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].$imageFileName;
+					// $pathThumbImage = dirname(dirname(app()->basePath)) . app()->params['imagePath'].'thumbs/'.$imageFileName;
 					$ret = $imageUploadFile->saveAs($pathImage);
 					//resize
 					$this->resizeImage($pathImage);
+					// $this->createThumbs($pathImage, $pathThumbImage);
 					if($ret)
 						deleteImage(dirname(dirname(app()->basePath)) . app()->params['imagePath'], $image_old);
 				}

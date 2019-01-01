@@ -76,6 +76,11 @@ $this->pageTitle = 'Product';
 </div>
 
 <div class="form-group">
+	<?php echo $form->labelEx($model,'thuonghieu_id'); ?>
+	<?php echo $form->dropDownList($model,'thuonghieu_id',array('0'=>'Chọn thương hiệu') + CHtml::listData($thuonghieu, 'id', 'name'), array('class' => 'form-control')); ?>
+</div>
+
+<div class="form-group">
 	<?php echo $form->labelEx($model,'tinhtrang'); ?>
 	<?php echo $form->textField($model,'tinhtrang', array('class' => 'form-control', 'placeholder' => 'Vui lòng nhập ' . mb_strtolower($model->attributeLabels()['tinhtrang']))); ?>
 </div>

@@ -323,4 +323,17 @@ class Controller extends CController
 		$images = json_decode($imgStr);
 		return $images[0];
 	}
+
+	public function cutString($str, $length = 63) {
+		if (strlen($str) > $length)
+			return substr($str, 0, $length) . '...';
+
+		return $str;
+	}
+
+	public function getCThuonghieu() {
+		$model = new ThuonghieuAR();
+		$thuonghieu = $model->findAllListCategory();
+		return $thuonghieu;
+	}
 }

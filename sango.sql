@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2018 at 02:01 PM
+-- Generation Time: Jan 02, 2019 at 12:32 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -196,7 +196,10 @@ CREATE TABLE `congtrinh` (
 INSERT INTO `congtrinh` (`id`, `cat_id`, `cat1_id`, `name`, `alias`, `description`, `content`, `image`, `order`, `status`, `noibat`, `created`, `keyword`) VALUES
 (1, 4, NULL, 'Sàn gỗ công nghiệp', 'san-go-cong-nghiep', 'Sàn gỗ công nghiệp', 'Sàn gỗ công nghiệp', '15349454197.jpg', NULL, 1, 0, '2018-08-22 15:43:39', NULL),
 (2, 3, NULL, 'Sàn gỗ tự nhiên', 'san-go-tu-nhien', 'Sàn gỗ tự nhiên', '<p>S&agrave;n gỗ tự nhi&ecirc;n</p>\r\n', '15349455446.jpg', NULL, 1, 0, '2018-08-22 15:45:44', NULL),
-(3, 2, NULL, 'Sàn gỗ ngoài trời', 'san-go-ngoai-troi', 'Sàn gỗ ngoài trời', '<p>S&agrave;n gỗ ngo&agrave;i trời</p>\r\n', '15349455685.jpg', NULL, 1, 0, '2018-08-22 15:46:08', NULL);
+(3, 2, NULL, 'Sàn gỗ hồ bơi DCWood HD 001 Cty TNHH ABC TNHH ABC TNHH ABC TNHH ABC', 'san-go-ho-boi-dcwood-hd-001-cty-tnhh-abc-tnhh-abc-tnhh-abc-tnhh-abc', 'Sàn gỗ ngoài trời', '<p>S&agrave;n gỗ ngo&agrave;i trời</p>\r\n', '15349455685.jpg', NULL, 1, 0, '2018-12-31 05:10:06', NULL),
+(4, 3, NULL, 'Sàn gỗ hồ bơi DCWood HD 002 CTY TNHH BBF', 'san-go-ho-boi-dcwood-hd-002-cty-tnhh-bbf', 'Sàn gỗ hồ bơi DCWood HD 002 CTY TNHH BBF', '<p>S&agrave;n gỗ hồ bơi DCWood HD 002 CTY TNHH BBF</p>\r\n', '1546231333IMG_6818.jpg', NULL, 1, 0, '2018-12-31 05:42:13', NULL),
+(5, 3, NULL, 'Sàn gỗ hồ bơi DCWood HD 003 CTY TNHH BBF', 'san-go-ho-boi-dcwood-hd-003-cty-tnhh-bbf', 'Sàn gỗ hồ bơi DCWood HD 003 CTY TNHH BBF', '<p>S&agrave;n gỗ hồ bơi DCWood HD 002 CTY TNHH BBF</p>\r\n', '1546231373IMG_6814.jpg', NULL, 1, 0, '2018-12-31 05:42:53', NULL),
+(6, 2, NULL, 'Sàn gỗ hồ bơi DCWood HD 003 CTY TNHH BBF', 'san-go-ho-boi-dcwood-hd-003-cty-tnhh-bbf', 'Sàn gỗ hồ bơi DCWood HD 003 CTY TNHH BBF', '<p>S&agrave;n gỗ hồ bơi DCWood HD 002 CTY TNHH BBF</p>\r\n', '1546233875IMG_6817.jpg', NULL, 1, 0, '2018-12-31 06:24:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -296,13 +299,14 @@ CREATE TABLE `product` (
   `alias` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `description` mediumtext COLLATE utf8_unicode_ci,
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8_unicode_ci,
   `price` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `khuyenmai` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `color` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `quycach` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `chongtray` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `xuatxu` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `thuonghieu_id` int(11) DEFAULT NULL,
   `tinhtrang` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ungdung` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `baohanh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -318,8 +322,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `cat_id`, `cat1_id`, `tag_id`, `name`, `masp`, `alias`, `description`, `content`, `image`, `price`, `khuyenmai`, `color`, `quycach`, `chongtray`, `xuatxu`, `tinhtrang`, `ungdung`, `baohanh`, `banchay`, `noibat`, `hot`, `order`, `status`, `created`) VALUES
-(1, 3, 13, NULL, 'san pham 1', 'SP01', 'san-pham-1', '123', '<p>123</p>\r\n', '["1545642929IMG_6815.jpg","1545642929IMG_6817.jpg"]', '200000', '', NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, 0, NULL, 1, '2018-12-24 10:15:29');
+INSERT INTO `product` (`id`, `cat_id`, `cat1_id`, `tag_id`, `name`, `masp`, `alias`, `description`, `content`, `image`, `price`, `khuyenmai`, `color`, `quycach`, `chongtray`, `xuatxu`, `thuonghieu_id`, `tinhtrang`, `ungdung`, `baohanh`, `banchay`, `noibat`, `hot`, `order`, `status`, `created`) VALUES
+(1, 3, 13, NULL, 'san pham 1', 'SP01', 'san-pham-1', '123', '<p>123</p>\r\n', '["1545642929IMG_6815.jpg","1545642929IMG_6817.jpg"]', '200000', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, 0, NULL, 1, '2018-12-24 10:15:29'),
+(2, 4, 17, NULL, 'san pham 2', 'SP02', 'san-pham-2', '', '<p>test</p>\r\n', '["1546249197IMG_6814.jpg","1546249197IMG_6815.jpg","1546249197IMG_6817.jpg","1546249198IMG_6818.jpg"]', '200000', '100000', 'do', '1.6 x 1.6', 'co', 'Sing', 1, 'Con hang', 'muon lam gi lam', '2 nam', 0, 0, 0, NULL, 1, '2018-12-31 10:39:57');
 
 -- --------------------------------------------------------
 
@@ -393,7 +398,7 @@ CREATE TABLE `sessions_admin` (
 --
 
 INSERT INTO `sessions_admin` (`id`, `expire`, `data`) VALUES
-('0bt0ojn06ujhf41je4rufr98h1', 1545652425, 0x65353264656639646133303366376465643737613731313836613062313531315f5f69647c733a353a2261646d696e223b65353264656639646133303366376465643737613731313836613062313531315f5f6e616d657c733a353a2261646d696e223b65353264656639646133303366376465643737613731313836613062313531316e616d657c733a353a2241646d696e223b65353264656639646133303366376465643737613731313836613062313531315f5f7374617465737c613a313a7b733a343a226e616d65223b623a313b7d);
+('1c81n27rjgkq4ulpj7og26kp32', 1546252909, 0x65353264656639646133303366376465643737613731313836613062313531315f5f69647c733a353a2261646d696e223b65353264656639646133303366376465643737613731313836613062313531315f5f6e616d657c733a353a2261646d696e223b65353264656639646133303366376465643737613731313836613062313531316e616d657c733a353a2241646d696e223b65353264656639646133303366376465643737613731313836613062313531315f5f7374617465737c613a313a7b733a343a226e616d65223b623a313b7d);
 
 -- --------------------------------------------------------
 
@@ -458,6 +463,36 @@ CREATE TABLE `tag` (
   `selected` int(11) DEFAULT NULL,
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `thuonghieu`
+--
+
+CREATE TABLE `thuonghieu` (
+  `id` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT '0',
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `alias` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `img_left` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `img_bottom` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `hot` int(11) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL,
+  `ordering` int(11) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `keyword` text COLLATE utf8_unicode_ci,
+  `description` text COLLATE utf8_unicode_ci,
+  `created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `thuonghieu`
+--
+
+INSERT INTO `thuonghieu` (`id`, `parent_id`, `name`, `alias`, `img_left`, `img_bottom`, `hot`, `status`, `ordering`, `title`, `keyword`, `description`, `created`) VALUES
+(1, 0, 'Janmi', 'janmi', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2018-12-31 10:29:27'),
+(2, 0, 'Wood', 'wood', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2018-12-31 10:29:42');
 
 -- --------------------------------------------------------
 
@@ -654,6 +689,12 @@ ALTER TABLE `tag`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `thuonghieu`
+--
+ALTER TABLE `thuonghieu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tintuc`
 --
 ALTER TABLE `tintuc`
@@ -699,7 +740,7 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT for table `congtrinh`
 --
 ALTER TABLE `congtrinh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `contact`
 --
@@ -724,7 +765,7 @@ ALTER TABLE `menu_cat`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `service`
 --
@@ -740,6 +781,11 @@ ALTER TABLE `static`
 --
 ALTER TABLE `tag`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `thuonghieu`
+--
+ALTER TABLE `thuonghieu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tintuc`
 --

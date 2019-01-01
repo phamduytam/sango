@@ -74,11 +74,15 @@ class ProductController extends Controller
 		// danh muc 2
 		$category1 = $model_cate->getSub2();
 
+		// thuong hieu
+		$model_thuonghieu = new ThuonghieuAR();
+		$thuonghieu = $model_thuonghieu->findAllListCategory();
+
 		// tag list
 		$model_tag = new TagAR();
 		$tags = $model_tag->findAllListTag();
 
-		$this->render('add', compact('model', 'category', 'category1', 'tags'));
+		$this->render('add', compact('model', 'thuonghieu', 'category', 'category1', 'tags'));
 	}
 
 	public function actionEdit($id)
@@ -153,7 +157,11 @@ class ProductController extends Controller
 		// danh muc 2
 		$category1 = $model_cate->getSub2();
 
-		$this->render('edit', compact('model', 'category', 'category1', 'tags', 'tags_checked'));
+		// thuong hieu
+		$model_thuonghieu = new ThuonghieuAR();
+		$thuonghieu = $model_thuonghieu->findAllListCategory();
+
+		$this->render('edit', compact('model', 'thuonghieu', 'category', 'category1', 'tags', 'tags_checked'));
 	}
 	public function actionDelete($id)
 	{

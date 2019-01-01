@@ -1,12 +1,14 @@
 <section class="best-sell">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1>Sản phẩm do đẳng cấp Mộc cung cấp </h1>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+                <h3 class="color_yellow">SẢN PHẨM DO ĐẲNG CẤP MỘC CUNG CẤP</h3>
+                <p style="margin: 10px 0 20px 0">
                 Với mục tiêu trở thành một công ty hàng đầu trong lĩnh vực sàn gỗ ngoài trời,
                 sàn gỗ công nghiệp, sàn gỗ tự nhiên, vỉ nhựa gổ, sàn gổ hồ bơi, sàn gỗ sân thượng...<br>
                 Chúng tôi luôn không ngừng làm mới mẫu mã, đa dạng chủng loại, chất lượng tốt nhất và
                  giá cả phù hợp với hầu hết khách hàng,...
+                </p>
             </div>
         </div>
         <div class="row home_category">
@@ -14,7 +16,7 @@
                 <?php $j = 0;?>
                 <?php foreach($category as $v):?>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v->alias?>.html" title="<?php echo $v->name?>"><img src="<?php echo app()->baseUrl?>/uploads/<?php echo $v->img_left?>"></a>
+                    <a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v->alias?>.html" title="<?php echo $v->name?>"><img src="<?php echo app()->baseUrl?>/uploads/<?php echo $v->img_left?>"></a>
                     <p class="cat_title"><a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v->alias?>.html" title="<?php echo $v->name?>"><?php echo $v->name ?></a></p>
                 <?php $category1 = $this->getCategory1($v->id);
                     if($category1):
@@ -26,6 +28,7 @@
                             <li><a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v1->alias?>.html" title="<?php echo $v1->name?>"><?php echo $v1->name ?></a></li>
                             <?php endforeach;?>
                         </ul>
+                        <p class="xemtatca"><a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v->alias?>.html" title="<?php echo $v->name?>">Xem tất cả</a></p>
                 <?php endif;?>
                 </div>
                 <?php endforeach; ?>
@@ -47,13 +50,13 @@
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="product-item">
                                     <div class="product-item-thumbnail">
-                                        <a href="<?php echo url('/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
+                                        <a href="<?php echo url('cong-trinh/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
                                             <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/<?php echo $v1->image?>" alt="<?php echo $v1->name?>">
                                         </a>
                                     </div>
                                     <h3 class="product-item-name">
                                         <a href="<?php echo url('cong-trinh/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
-                                            <?php echo $v1->name?>
+                                            <?php echo $this->cutString($v1->name)?>
                                         </a>
                                     </h3>
                                 </div>
@@ -117,7 +120,17 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Thương hiệu: </label> </div>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                            <select class="form-text cat1_id">
+                            <select class="form-text">
+                            <?php
+                                $thuonghieu = $this->getThuonghieu();
+                                if($thuonghieu):
+                                    ?>
+                                <?php
+                                foreach ($thuonghieu as $t):
+                            ?>
+                                <option value="<?php echo $t->id ?>"><?php echo $t->name ?></option>
+                                <?php endforeach;?>
+                            <?php endif;?>
                             </select>
                         </div>
                     </div>

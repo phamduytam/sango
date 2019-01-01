@@ -35,7 +35,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-				<nav class="nav-category block">
+				<nav class="nav-category">
 					<h2 id="click_show_cate">Danh mục sản phẩm</h2>
 					<ul id="show_cate">
 						<?php

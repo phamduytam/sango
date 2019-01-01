@@ -40,7 +40,11 @@
 					</li>
 				</ul>
 			</li>
-		<li <?php echo ($this->id == 'menu1' || $this->id == 'menu2')  ? 'class="active"' : ''?>><a href=""> <i class="livicon" data-name="list-ul" data-size="18"
+			<li <?php echo $this->id == 'thuonghieu' ? 'class="active"' : ''?>><a href="<?php echo app()->baseUrl;?>/thuonghieu"> <i class="livicon" data-name="move" data-c="#EF6F6C"
+				data-hc="#EF6F6C" data-size="18" data-loop="true"></i> <span
+				class="title">Thương Hiệu</span> <span class="fa arrow"></span> </a>
+			</li>
+		<!--<li <?php echo ($this->id == 'menu1' || $this->id == 'menu2')  ? 'class="active"' : ''?>><a href=""> <i class="livicon" data-name="list-ul" data-size="18"
 				data-c="#F89A14" data-hc="#F89A14" data-loop="true"></i> <span
 				class="title">Menu</span> <span class="fa arrow"></span> </a>
 			<ul class="sub-menu">
@@ -57,7 +61,7 @@
 						</a>
 					</li>
 			</ul>
-		</li>	
+		</li>	-->
 		<li <?php echo $this->id == 'product' ? 'class="active"' : ''?>><a href="<?php echo app()->baseUrl;?>/product"> <i class="livicon" data-name="image" data-size="18"
 				data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i> <span
 				class="title">Sản phẩm</span> <span class="fa arrow"></span> </a>

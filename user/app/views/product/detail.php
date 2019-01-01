@@ -39,17 +39,16 @@ $this->description = $product->description;
 					<!-- Giá gốc -->
 					<span class="old-price">
 						Giá:
-						<del class="price product-price-old sale" itemprop="priceSpecification"><?php echo number_format($product->price) ?></del>
-						<meta itemprop="priceCurrency" content="VND">
+						<del class="price product-price-old sale" itemprop="priceSpecification"><?php echo number_format($product->price) ?><?php echo Commons::DON_GIA;?></del>
 					</span><br>
 					<?php endif;?>
 					<span class="special-price">
 						<?php echo $product->khuyenmai > 0 ? 'Giá khuyến mãi: ' : 'Giá: ';?>
 						<span class="price product-price" itemprop="price">
-							<?php echo $product->khuyenmai > 0 ? number_format($product->khuyenmai) : number_format($product->price) ?>
+							<?php echo $product->khuyenmai > 0 ? number_format($product->khuyenmai) : number_format($product->price) ?><?php echo Commons::DON_GIA;?>
 						</span>
-						<meta itemprop="priceCurrency" content="VND">
 					</span>
+					
 					<!-- Giá Khuyến mại -->
 
 				</div>
