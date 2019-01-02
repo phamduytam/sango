@@ -10,6 +10,7 @@ class ProductAR extends BaseAR
 	public $cat_id;
 	public $cat1_id;
 	public $tag_id;
+	public $thuonghieu_id;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -58,6 +59,7 @@ class ProductAR extends BaseAR
 		// class name for the relations automatically generated below.
 		return array(
 			'category_pro'=>array(self::BELONGS_TO, 'Category1AR', 'cat_id'),
+			'thuonghieu'=>array(self::BELONGS_TO, 'ThuonghieuAR', 'thuonghieu_id'),
 		);
 	}
 
@@ -109,6 +111,8 @@ class ProductAR extends BaseAR
 		$criteria->select = '*';
 		if(strlen($this->status) > 0)
 			$criteria->addCondition('t.status = :status')->params[':status'] = $this->status;
+		if(strlen($this->thuonghieu_id) > 0)
+			$criteria->addCondition('t.thuonghieu_id = :thuonghieu_id')->params[':thuonghieu_id'] = $this->thuonghieu_id;
 		if(strlen($this->cat_id) > 0)
 			$criteria->addCondition('t.cat_id = :cat_id')->params[':cat_id'] = $this->cat_id;
 		if(strlen($this->cat1_id) > 0)
@@ -126,6 +130,27 @@ class ProductAR extends BaseAR
 	{
 		$criteria = $this->getCriteriaListProduct();
 		return $this->searchList_Ex($criteria, $pageSize, $maxPage);
+	}
+
+	public function getAll() {
+		$criteria = new CDbCriteria();
+		$criteria->select = 't.price, t.khuyenmai, t.name';
+		if(strlen($this->status) > 0)
+			$criteria->addCondition('t.status = :status')->params[':status'] = $this->status;
+		if(strlen($this->thuonghieu_id) > 0)
+			$criteria->addCondition('t.thuonghieu_id = :thuonghieu_id')->params[':thuonghieu_id'] = $this->thuonghieu_id;
+		if(strlen($this->cat_id) > 0)
+			$criteria->addCondition('t.cat_id = :cat_id')->params[':cat_id'] = $this->cat_id;
+		if(strlen($this->cat1_id) > 0)
+			$criteria->addCondition('t.cat1_id = :cat1_id')->params[':cat1_id'] = $this->cat1_id;
+		if(strlen($this->tag_id) > 0){
+			$criteria->addCondition('FIND_IN_SET(:tag_id, t.tag_id) > 0')->params[':tag_id'] = $this->tag_id;
+		}
+		if(strlen($this->word) > 0)
+			$criteria->compare('name',$this->word,true);
+		$criteria->order = 't.name ASC';
+
+		return $this->findAll($criteria);
 	}
 
 	public function getList($limit, $offset = 0)
@@ -170,7 +195,7 @@ class ProductAR extends BaseAR
 		$arr = array_merge($arr1, $arr2);
 		return $arr;
 	}
-	
+
 	public function getBanGhe($limit)
 	{
 		$criteria = new CDbCriteria();

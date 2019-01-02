@@ -80,7 +80,7 @@ class ProductController extends Controller
 			$this->pageTitle = $category->title;
 			$this->keyword = $category->keyword;
 			$this->description = $category->description;
-			$title = $category->name;	
+			$title = $category->name;
 		}
 		$content = $product->searchListProduct(16);
 		$this->layout = 'standard';
@@ -103,7 +103,7 @@ class ProductController extends Controller
 			return ;
 		}
 		$product = new ProductAR("searchListProduct");
-		
+
 		$product->status = 1;
 		$product->word = $keyword;
 		$content = $product->searchListProduct(16);
@@ -115,6 +115,31 @@ class ProductController extends Controller
 		$this->pageTitle = 'Sản phẩm';
 		$title = $this->pageTitle;
 		$this->render('index', compact('content', 'title'));
+	}
+
+	public function actionAjaxPro() {
+		$cat_id = request()->getQuery('cat_id', '');
+		$thuonghieu_id = request()->getQuery('thuonghieu_id', '');
+		$model = new ProductAR();
+		$model->status = 1;
+		if (strlen($cat_id) > 0) {
+			$model->cat_id = $cat_id;
+		}
+		if (strlen($thuonghieu_id) > 0) {
+			$model->thuonghieu_id = $thuonghieu_id;
+		}
+
+		$product = $model->getAll();
+		$html = '';
+		if($product) {
+			$html .= '<option value="">-- Chọn sàn gỗ</option>';
+			foreach ($product as $value) {
+				$html.= '<option value="'.$value->price.'">'.$value->name.'</option>';
+			}
+		} else {
+			$html .= '<option value="">Không có sàn gỗ nào</option>';
+		}
+		echo $html;
 	}
 
 }

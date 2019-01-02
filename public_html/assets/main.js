@@ -163,13 +163,21 @@ function viewGrid() {
 
 
 $(document).ready(function(){
-	$('.cat_id').change(function(){
-		id = $(this).val();
+	$('.cat_id, .thuonghieu').change(function(){
+		var id = $('.cat_id').val();
+		var thuonghieu_id = $('.thuonghieu').val();
 		var url = 'http://' + window.location.hostname;
+		var params = [];
+		if (id != '') {
+			params.push('cat_id='+id);
+		}
+		if (thuonghieu_id != '') {
+			params.push('thuonghieu_id='+thuonghieu_id);
+		}
 		$.ajax({
-			url: url + '/category/ajaxSub2/' + id,
+			url: url + '/product/ajaxPro?' + params.join('&'),
 			success: function(html) {
-				$('.cat1_id').html(html);
+				$('.sango').html(html);
 			}
 		});
 	});

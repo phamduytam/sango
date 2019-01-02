@@ -34,7 +34,7 @@ class Controller extends CController
 
 	public function init()
 	{
-	
+
 	}
 
 	protected function beforeAction($action)
@@ -90,13 +90,13 @@ class Controller extends CController
 		return $advertise;
 	}
 
-	public function getThuonghieu() {
-		$model = new AdvertiseAR();
-		$model->status = 1;
-		$model->cat_id = 7;
-		$advertise = $model->getSlide();
-		return $advertise;
-	}
+	// public function getThuonghieu() {
+	// 	$model = new AdvertiseAR();
+	// 	$model->status = 1;
+	// 	$model->cat_id = 7;
+	// 	$advertise = $model->getSlide();
+	// 	return $advertise;
+	// }
 
 	public function getDescription()
 	{
@@ -150,7 +150,7 @@ class Controller extends CController
 			return $this->pageTitle . ' - ' . $title;
 		else{
 			return $title;
-		}	
+		}
 	}
 
 	public function getImage()
@@ -160,7 +160,7 @@ class Controller extends CController
 			return 'http://banghepallet.vn/uploads/'.$this->fbImage;
 		else{
 			return 'http://banghepallet.vn/img/ban-ghe-pallet.jpg';
-		}	
+		}
 	}
 
 	public function getCategory() {
@@ -244,7 +244,7 @@ class Controller extends CController
 			return $product;
 		return false;
 	}
-	
+
 	public function getMenu() {
 		$html = '';
 		$model = new Menu2AR();
@@ -331,7 +331,7 @@ class Controller extends CController
 		return $str;
 	}
 
-	public function getCThuonghieu() {
+	public function getThuonghieu() {
 		$model = new ThuonghieuAR();
 		$thuonghieu = $model->findAllListCategory();
 		return $thuonghieu;

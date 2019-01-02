@@ -120,12 +120,11 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Thương hiệu: </label> </div>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                            <select class="form-text">
+                            <select class="form-text thuonghieu">
+                            <option value="">-- Chọn thương hiệu</option>
                             <?php
                                 $thuonghieu = $this->getThuonghieu();
                                 if($thuonghieu):
-                                    ?>
-                                <?php
                                 foreach ($thuonghieu as $t):
                             ?>
                                 <option value="<?php echo $t->id ?>"><?php echo $t->name ?></option>
@@ -137,8 +136,8 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Tên sàn gỗ: </label> </div>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                            <select class="form-text">
-                                <option>O24 8m</option>
+                            <select class="form-text sango">
+                                <option></option>
                             </select>
                         </div>
                     </div>
@@ -157,12 +156,12 @@
                     </div>
                     <div class="col-lg-2 col-md-2" style="padding-top: 20px;" align="center">x</div>
                     <div class="col-lg-5 col-md-5" style="display: flex; padding-top: 20px;">
-                        
+
                         Chiều rộng
                         <input type="text" class="form-text" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
                         m
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6" style="display: flex; padding-top: 20px;">
@@ -171,7 +170,7 @@
                         <input type="text" class="form-text" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
                         m2
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">BÁO GIÁ: <span class="red">340.000</span> VND/M2</div>
