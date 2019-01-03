@@ -142,38 +142,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">ĐƠN GIÁ: <span class="red">340.000</span> VND/M2</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">ĐƠN GIÁ: <span class="red dongia">---</span> VND/M2</div>
         </div>
         <div class="row mb20">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb10"><b>DIỆN TÍCH LÓT SÀN</b></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-lg-5 col-md-5" style="display: flex; padding-top: 20px;">
-                        <input type="radio" checked name="loai" value="0" class="form-checkbox">
+                        <input type="radio" checked name="loai" value="0" class="form-checkbox type">
                         <span>Chiều dài</span>
-                        <input type="text" class="form-text" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
+                        <input type="text" class="form-text chieudai" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
                         <span>m</span>
                     </div>
                     <div class="col-lg-2 col-md-2" style="padding-top: 20px;" align="center">x</div>
                     <div class="col-lg-5 col-md-5" style="display: flex; padding-top: 20px;">
 
                         Chiều rộng
-                        <input type="text" class="form-text" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
+                        <input type="text" class="form-text chieurong" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
                         m
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6" style="display: flex; padding-top: 20px;">
-                        <input type="radio" name="loai" value="1" class="form-checkbox">
+                        <input type="radio" name="loai" value="1" class="form-checkbox type">
                         <span>Diện tích&nbsp;</span>
-                        <input type="text" class="form-text" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
+                        <input type="text" class="form-text dientich" maxlength="4" style="width: 50px; margin: -10px 10px 0 10px; padding: 5px">
                         m2
                     </div>
 
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">BÁO GIÁ: <span class="red">340.000</span> VND/M2</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">BÁO GIÁ: <span class="red thanhtien">---</span> VND/M2</div>
         </div>
         <div class="row mb20">
             <div class="col-lg-12">

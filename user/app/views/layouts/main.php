@@ -111,31 +111,31 @@
 
                                     </li>
 
-                                    <li class="<?php echo $this->id == 'gioithieu' ? 'active' : ''?>">
-                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Sản phẩm sàn gỗ</a>
+                                    <li class="<?php echo $this->id == 'product' && $this->pageTitle != 'Phụ kiện sàn gỗ' ? 'active' : ''?>">
+                                        <a href="<?php echo app()->baseUrl;?>/san-pham">Sản phẩm sàn gỗ</a>
 
                                     </li>
-                                    <li class="<?php echo $this->id == 'gioithieu' ? 'active' : ''?>">
-                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Phụ kiện sàn gỗ</a>
+                                    <li class="<?php echo $this->pageTitle == 'Phụ kiện sàn gỗ' ? 'active' : ''?>">
+                                        <a href="<?php echo app()->baseUrl;?>/san-pham/phu-kien-san-go">Phụ kiện sàn gỗ</a>
 
                                     </li>
                                     <li class="<?php echo $this->id == 'congtrinh' ? 'active' : ''?>">
-                                        <a href="<?php echo app()->baseUrl;?>/gioi-thieu">Công trình sàn gỗ</a>
+                                        <a href="<?php echo app()->baseUrl;?>/cong-trinh">Công trình sàn gỗ</a>
 
                                     </li>
 
-                                    <li class="<?php echo $this->id == 'congtrinh' ? 'active' : ''?>">
-                                        <a href="/cong-trinh">Tin tức</a>
+                                    <li class="<?php echo $this->id == 'tintuc' ? 'active' : ''?>">
+                                        <a href="<?php echo app()->baseUrl;?>/tin-tuc">Tin tức</a>
 
                                     </li>
 
                                     <li class="<?php echo $this->id == 'contact' ? 'active' : ''?>">
-                                        <a href="/lien-he">Liên hệ</a>
+                                        <a href="<?php echo app()->baseUrl;?>/lien-he">Liên hệ</a>
 
                                     </li>
 
                                     <li style="border-top: #fff 1px solid;">
-                                        <form method="get" action="/search">
+                                        <form method="get" action="<?php echo app()->baseUrl;?>/san-pham/search">
                                             <input type="text" class="search-query" placeholder="Tìm kiếm sản phẩm" value="" name="query">
                                             <button type="submit" class="search-submit">
                                                 <i class="fa fa-search"></i>

@@ -182,4 +182,41 @@ $(document).ready(function(){
 		});
 	});
 
+	$('.sango').change(function() {
+		var price = $(this).val();
+		console.log('test', price.toLocaleString('en'));
+		$('.dongia').html(Number(price).toLocaleString('en'));
+	});
+
+	var timeout = null;
+	$('.chieudai, .chieurong, .dientich').keyup(function() {
+		clearTimeout(timeout);
+
+		// Make a new timeout set to go off in 800ms
+		timeout = setTimeout(function () {
+			thanhTien();
+		}, 1000);
+	});
+
+	var thanhTien = function() {
+		var chieudai = Number($('.chieudai').val()) || 0;
+		var chieurong = Number($('.chieurong').val()) || 0;
+		var dientich = Number($('.dientich').val()) || 0;
+		var dongia = Number($('.sango').val()) || 0;
+		var type = Number($('.type:checked').val());
+		console.log('test111', chieudai, chieurong, dongia, type);
+		if (type == 1) {
+			if (dientich > 0 && dongia > 0) {
+				var baogia = Number(dientich * dongia).toLocaleString('en');
+				$('.thanhtien').html(baogia);
+			}
+		} else {
+			if (chieudai > 0 && chieurong > 0 && dongia > 0) {
+				var baogia = Number(chieudai * chieurong * dongia).toLocaleString('en');
+				$('.thanhtien').html(baogia);
+			}
+		}
+	}
+
+
 });
