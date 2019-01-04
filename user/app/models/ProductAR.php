@@ -134,7 +134,7 @@ class ProductAR extends BaseAR
 
 	public function getAll() {
 		$criteria = new CDbCriteria();
-		$criteria->select = 't.price, t.khuyenmai, t.name';
+		$criteria->select = 't.price, t.khuyenmai, t.name, t.alias, t.id';
 		if(strlen($this->status) > 0)
 			$criteria->addCondition('t.status = :status')->params[':status'] = $this->status;
 		if(strlen($this->thuonghieu_id) > 0)

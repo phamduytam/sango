@@ -68,33 +68,61 @@
             <?php endforeach;?>
         <?php endif;?>
     </div>
-    <div class="form-style container baogia">
-        <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
-            <p><h3 class="color_yellow">TƯ VÁN - BÁO GIÁ SÀN GỖ</h3></p>
-            <p>Quý Khách Hàng có thể tính thử chi phí khi sử dụng sàn gỗ tại Đẳng Cấp Mộc. Vui lòng nhập đầy đủ thông tin bên dưới để xem Báo Giá tham khảo...</p>
+    <section class="banner-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <?php
+                        $banner3 = $this->getBannerByCatId(5);
+                        if ($banner3):
+                    ?>
+                            <a target="_blank" href="<?php echo $banner3->url != '' ? $banner3->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $banner3->image?>" alt="<?php echo $banner3->name?>"></a>
+                            <?php else: ?>
+                            <img class="img-responsive" src="assets/banner3.jpg?1493875157619" alt="Banner 3">
+                            <?php endif; ?>
+
+                </div>
+            </div>
         </div>
+    </section>
+    <div class="form-style container baogia">
+        <?php
+            $form = $this->beginWidget('TbActiveForm', array(
+                'action'=>sslUrl('contact'),
+                'id' => 'baogia-form',
+                'method' => 'POST',
+                'htmlOptions'=>array('enctype' => 'multipart/form-data', 'method' => 'POST')
+                ));
+        ?>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+                <p><h3 class="color_yellow">TƯ VÁN - BÁO GIÁ SÀN GỖ</h3></p>
+                <p>Quý Khách Hàng có thể tính thử chi phí khi sử dụng sàn gỗ tại Đẳng Cấp Mộc. Vui lòng nhập đầy đủ thông tin bên dưới để xem Báo Giá tham khảo...</p>
+            </div>
         </div>
         <div class="row mb20">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb10"><b>THÔNG TIN KHÁCH HÀNG</b></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <!-- <div class="row"> -->
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Họ tên:<span>*</span></label> </div>
-                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text"></div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text hoten"></div>
                 <!-- </div> -->
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Địa chỉ:<span>*</span></label> </div>
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text"></div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text diachi"></div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Số điện thoại:<span>*</span></label> </div>
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text"></div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text sdt"></div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> <label>Email:<span>*</span></label> </div>
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text"></div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text email"></div>
             </div>
+        </div>
+        <div class="row mb20 center">
+            <input type="button" value="Gửi" class="btn btn-primary sendbaogia" disabled="disabled">
         </div>
         <div class="row mb20">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb10"><b>CHỌN LOẠI SÀN GỖ</b></div>
@@ -184,62 +212,82 @@
                 ** Cám ơn khách hàng đã lựa chọn sàn gỗ Đẳng Cấp Mộc. Chúng tôi sẽ liên hệ tư vấn trong thời gian sớm nhất...
             </div>
         </div>
+        <?php
+            $this->endWidget();
+        ?>
     </div>
+    <section class="banner-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <?php
+                        $banner3 = $this->getBannerByCatId(6);
+                        if ($banner3):
+                    ?>
+                            <a target="_blank" href="<?php echo $banner3->url != '' ? $banner3->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $banner3->image?>" alt="<?php echo $banner3->name?>"></a>
+                            <?php else: ?>
+                            <img class="img-responsive" src="assets/banner3.jpg?1493875157619" alt="Banner 3">
+                            <?php endif; ?>
+
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="container service">
         <div class="row">
             <div class="col-lg-12 center">
-                <span class="title">TẠI SAO NÊN CHỌN ĐẲNG CẤP MỘC ?</span>
-                <div class="pb10">Với khát vọng trở thành công ty hàng đầu trong lĩnh vực sàn gỗ tại Việt Nam, chúng tôi đã và đang tạo sự khác biệt với công ty khác để mang đến những sản phẩm chất lượng cao, dịch vụ hoàn hảo tới tay khách hàng. Dưới đây là 10 điểm khác biệt của chúng tôi: </div>
+                <span class="title"><?php echo $about->title ?></span>
+                <div class="pb10"><?php echo $about->description ?><</div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon1.jpg"></div>
-                <p><b>Nhân viên: </b>Đội ngũ nhân sự hơn 20 người. Thuộc top những công ty hàng đầu trong lĩnh vực sàn gỗ. Chúng tôi có đủ người để đáp ưng các yêu cầu của khách hàng một cách tốt nhất, nhanh nhất.</p>
+                <?php echo $about->nhanvien ?>
             </div>
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon6.jpg"></div>
-                <p><b>Uy tín: </b>Được sự đánh giá cao từ khách hàng là nguồn động lực to lớn giúp chúng tôi không ngừng nâng cao chất lượng sản phẩm dịch vụ. Đẳng cấp Mộc đã nhận được rất nhiều ý kiến đánh giá, động viên từ khách hàng. Quý khách có thể xem chi tiết tại đây.</p>
+                <?php echo $about->uytin ?>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon2.jpg"></div>
-                <p><b>Kinh nghiệm: </b>Đẳng Cấp Mộc đã thực hiện công trình sàn gỗ cho hơn 100 gia đình, công ty, tổ chức,...<br>Chúng tôi đủ kinh nghiệm để thấu hiểu nhu cầu của khách hàng để làm ra các sản phẩm tốt nhất.</p>
+                <?php echo $about->kinhnghiem ?>
             </div>
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon7.jpg"></div>
-                <p><b>Chất lượng: </b>Đẳng Cấp Mộc đem đến cho khách hàng những sản phẩm chính hiệu mang chất lượng tốt nhất, phù họp nhất cho ngôi nhà thân yêu của bạn.</p>
+                <?php echo $about->chatluong ?>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon3.jpg"></div>
-                <p><b>Mục tiêu: </b>Hiện tại đã được những thành tựu nhất định trong lĩnh vực sàn gỗ. Nhưng chúng tôi sẽ không dừng lại mà sẽ liên tục hoàn thiện mình để cung cấp dịch vụ tốt nhất cho khách hàng.</p>
+                <?php echo $about->muctieu ?>
             </div>
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon8.jpg"></div>
-                <p><b>Giá cả: </b>Với quan điểm là một đơn vị "hào phóng cho đi và đón nhận tuyệt vời". Chúng tôi tin sẽ mang đến cho khách hàng một dịch vụ tuyệt hảo, một sản phẩm đẳng cấp nhưng bảo đảm tiết kiệm tối đa chi phí.</p>
+                <?php echo $about->giaca ?>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon4.jpg"></div>
-                <p><b>Tận tâm: </b>Với đội ngũ nhân viên chuyên nghiệp, tận tâm, giàu kinh nghiệm cùng phương châm "khách hàng là số 1", chúng tôi sẽ mang đến cho khách hàng sự an tâm, hài lòng khi sử dụng sản phẩm tại Đẳng Cấp Mộc.</p>
+                <?php echo $about->tantam ?>
             </div>
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon9.jpg"></div>
-                <p><b>Quy trình: </b>Với quy trình tư vấn, khảo sát, lắp ráp chuyên nghiệp. Chúng tôi tự tin giúp khách hàng có được những sàn gổ đẹp nhất, bền nhất, mang lại hiệu quả cao mà không mất quá nhiều thời gian trao đổi, làm việc. </p>
+                <?php echo $about->quytrinh ?>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon5.jpg"></div>
-                <p><b>Hỗ trợ: </b>Đẳng Cấp Mộc có đội ngũ hỗ trợ khách hàng riêng, không kiêm nhiệm với công việc khác. Vì vậy, chúng tôi sẵn sàng hỗ trợ ngay khi khách hàng cần. Đây cũng là sự khác biệt của Đẳng Cấp Mộc so với các công ty khác.</p>
+                <?php echo $about->hotro ?>
             </div>
             <div class="col-lg-6 col-md-6 block">
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon10.jpg"></div>
-                <p><b>Cam kết: </b>Đẳng Cấp Mộc cam kết đem lại những sản phẩm chất lượng tốt nhất, đẹp nhất. Chúng tôi muốn khách hàng thấy rằng, Đẳng Cấp Mộc thấu hiểu nhu cầu của khách hàng khi đến với chúng tôi.</p>
+                <?php echo $about->camket ?>
             </div>
         </div>
     </div>

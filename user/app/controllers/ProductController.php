@@ -134,7 +134,7 @@ class ProductController extends Controller
 		if($product) {
 			$html .= '<option value="">-- Chọn sàn gỗ</option>';
 			foreach ($product as $value) {
-				$html.= '<option value="'.$value->price.'">'.$value->name.'</option>';
+				$html.= '<option value="'.$value->price.'" data-id="'.$value->id.'" data-alias="'.$value->alias.'" data-name="'.$value->name.'">'.$value->name.'</option>';
 			}
 		} else {
 			$html .= '<option value="">Không có sàn gỗ nào</option>';

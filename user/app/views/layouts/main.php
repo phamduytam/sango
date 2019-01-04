@@ -135,12 +135,21 @@
                                     </li>
 
                                     <li style="border-top: #fff 1px solid;">
-                                        <form method="get" action="<?php echo app()->baseUrl;?>/san-pham/search">
-                                            <input type="text" class="search-query" placeholder="Tìm kiếm sản phẩm" value="" name="query">
-                                            <button type="submit" class="search-submit">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </form>
+                                    <?php
+                                        $form = $this->beginWidget('TbActiveForm', array(
+                                            'action'=>sslUrl('san-pham/tim-kiem'),
+                                            'id' => 'search-form',
+                                            'method' => 'GET',
+                                            'htmlOptions'=>array('enctype' => 'multipart/form-data', 'method' => 'GET')
+                                            ));
+                                    ?>
+                                        <input type="text" class="search-query" placeholder="Tìm kiếm sản phẩm" value="" name="keyword">
+                                        <button type="submit" class="search-submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    <?php
+                                        $this->endWidget();
+                                    ?>
                                     </li>
                                 </ul>
                             </nav>
@@ -148,7 +157,16 @@
                     </div>
                 </div>
             </div>
-            <div class="logo"> <img src="<?php echo app()->baseUrl;?>/assets/images/logo.png"></div>
+            <div class="logo">
+                <?php $logo = $this->getLogo()?>
+                <?php
+                    if ($logo)
+                        $img = 'uploads/' . $logo->image;
+                    else
+                        $img = 'assets/images/logo.png';
+                ?>
+                <img src="<?php echo app()->baseUrl;?>/<?php echo $img?>">
+            </div>
         </header>
         <?php if($this->id == 'site'):?>
         <section class="slider">
@@ -219,8 +237,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-6 col-md-6 col-xs-12 footer-about">
-
-                            <img src="<?php echo app()->baseUrl;?>/uploads/1504931514logo_mocstyle.png" alt="Moc Style">
+                        <?php
+                            $logo_footer = $this->getBannerByCatId(7);
+                        ?>
+                        <?php
+                            if ($logo_footer)
+                                $img = 'uploads/' . $logo_footer->image;
+                            else
+                                $img = 'assets/logo-footer.png';
+                        ?>
+                            <img src="<?php echo app()->baseUrl;?>/<?php echo $img?>">
 
                             <?php $contact = $this->getContact(); ?>
                             <ul>
@@ -302,7 +328,7 @@
 
 
 
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 footer-subcribe">
+                        <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 footer-subcribe">
                             <div class="heading-small">
                                 <h3>Đăng ký nhận khuyến mại</h3>
                             </div>
@@ -325,7 +351,7 @@
 
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

@@ -26,7 +26,7 @@ class SiteController extends Controller
 		$noibat = $model->getNoibatList(4);
 
 		// colection
-		
+
 		$model = new Category1AR();
 		$model->hot = true;
 		$category = $model->getCategory(4);
@@ -40,9 +40,12 @@ class SiteController extends Controller
 		$model->noibat = true;
 		$tintuc = $model->getList(5);
 
+		$model = new AboutAR();
+		$about = $model->findByPk(1);
+
 		$this->layout = 'main';
 
-		$this->render('index', compact('advertise', 'new', 'banchay', 'noibat', 'category', 'title', 'tintuc'));
+		$this->render('index', compact('advertise', 'new', 'banchay', 'noibat', 'category', 'title', 'tintuc', 'about'));
 	}
 
 	/**

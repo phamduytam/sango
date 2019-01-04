@@ -209,13 +209,85 @@ $(document).ready(function(){
 			if (dientich > 0 && dongia > 0) {
 				var baogia = Number(dientich * dongia).toLocaleString('en');
 				$('.thanhtien').html(baogia);
+				$('.sendbaogia').attr('disabled', false);
 			}
 		} else {
 			if (chieudai > 0 && chieurong > 0 && dongia > 0) {
 				var baogia = Number(chieudai * chieurong * dongia).toLocaleString('en');
 				$('.thanhtien').html(baogia);
+				$('.sendbaogia').attr('disabled', false);
 			}
 		}
+	}
+
+	$('.sendbaogia').click(function() {
+
+		var hoten = $('.hoten').val();
+		var diachi = $('.diachi').val();
+		var email = $('.email').val();
+		var sdt = $('.sdt').val();
+		var selectedPro = $('.sango option:selected');
+		var id = $(selectedPro).attr('data-id');
+		var alias = $(selectedPro).attr('data-alias');
+		var namePro = $(selectedPro).attr('data-name');
+
+
+		if (!hoten || !diachi || !email || !sdt) {
+			alert('Vui lòng nhập đầy đủ thông tin.');
+			return;
+		}
+
+		if (!validateEmail(email)) {
+			alert('Vui lòng nhập email hợp lê.');
+			return;
+		}
+
+		var params = {};
+		if (hoten != '') {
+			params['name'] = hoten;
+		}
+		if (diachi != '') {
+			params['address'] = diachi;
+		}
+		if (email != '') {
+			params['email'] = email;
+		}
+		if (sdt != '') {
+			params['phone'] = sdt;
+		}
+		if (id != '') {
+			params['id'] = id;
+		}
+		if (alias != '') {
+			params['alias'] = alias;
+		}
+		if (namePro != '') {
+			params['namePro'] = namePro;
+		}
+		var token = $('input[name="YII_CSRF_TOKEN"]').val();
+		if (token) {
+			params['YII_CSRF_TOKEN'] = token;
+		}
+
+		$(this).attr('disabled', true);
+		var url = 'http://' + window.location.hostname;
+		$.ajax({
+			type: 'POST',
+			data: params,
+			url: url + '/contact/baogia',
+			success: function(html) {
+				console.log('html', html);
+				$('.sendbaogia').attr('disabled', false);
+				if (html == 'OK') {
+					alert('Gửi thông tin thành công');
+				}
+			}
+		});
+	});
+
+	function validateEmail(email) {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
 	}
 
 
