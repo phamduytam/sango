@@ -7,6 +7,7 @@ class ProductAR extends BaseAR
 	 * @return AdminAR the static model class
 	 */
 	public $word;
+	public $cat_id;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -41,7 +42,7 @@ class ProductAR extends BaseAR
 			array('alias, created', 'required'),
 			array('name', 'required', 'message' => 'Vui lòng nhập tên sản phẩm'),
 			array('content', 'required', 'message' => 'Vui lòng nhập nội dung'),
-			array('image', 'file', 'allowEmpty'=>true, 'types' => 'jpg, gif, png, jpeg', 'maxSize' => 2048*1000, 'wrongType' => 'Image không đúng định dạng ', 'tooLarge' => 'Image quá lớn'),
+			array('image', 'file', 'allowEmpty'=>true, 'types' => 'jpg, gif, png, jpeg', 'maxSize' => 5 *1024*1000, 'wrongType' => 'Image không đúng định dạng ', 'tooLarge' => 'Image quá lớn'),
 			array('description, order, status, cat_id, cat1_id, thuonghieu_id, tag, price,
 			 baohanh, masp, khuyenmai, color, quycach, xuatxu, tinhtrang, ungdung, chongtray, noibat, banchay, hot', 'safe')
 		);
@@ -127,6 +128,8 @@ class ProductAR extends BaseAR
 		//$criteria->addCondition('status = :status')->params[':status'] = 1;
 		if(strlen($this->word) > 0)
 			$criteria->compare('name',$this->word,true);
+		if(strlen($this->cat_id) > 0)
+			$criteria->addCondition('t.cat_id = :cat_id')->params[':cat_id'] = $this->cat_id;
 		$criteria->with = array(
 			'category' => array(
 				'select' 	=> 'category.name',

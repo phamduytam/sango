@@ -48,7 +48,7 @@ span#click_show { color: #c7c7c7; position: absolute;right: 10px;top: 19px;curso
 	.address-content .col-sm-6:nth-child(2n+1){clear:both;}
 }
 @media screen and (max-width: 991px){
-	#show_cate {display:none;}
+	/* #show_cate {display:none;} */
 }
 @media screen and (max-width: 480px){.cart-mini{display:none!important;}}
 .nav-account ul{position:absolute;top:100%;left:0;display:none;z-index:999;width:200px;background-color:#fff;}
@@ -368,9 +368,62 @@ select.form-text{height:45px}
 .nav-payments ul li{float:left;margin-left:15px;color:#404040;line-height:60px}
 .text-danger{color:red}
 .share-blog .fa {color:#000;}
+.service {
+	padding: 10px 70px;
+}
+
+.service .title {
+	color: #ffdd00;
+	font-size: 20px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.service .block div {
+	margin-right: 45px;
+	width: 100px;
+	float: left
+}
+
+.service .block p {
+	padding-right: 20px;
+	float: left;
+	width: calc(100% - 145px);
+}
+
+
+.banchay h2 {
+	background: #252525;
+	height: 46px;
+	color: #ffdd00;
+	text-align: center;
+	line-height: 46px;
+}
+.banchay h2:before {
+	background-image: url('images/box_left.jpg');
+	width: 25px;
+	height: 46px;
+	float: left;
+	content:"";display:block;
+	border-left: 1px solid #ebebeb;
+}
+.banchay h2:after {
+	background-image: url('images/box_right.jpg');
+	width: 25px;
+	height: 46px;
+	float: right;
+	content:"";display:block;
+}
+.banchay ._box {
+	border: 1px solid #ebebeb;
+	border-top: 0;
+	padding: 15px;
+}
 @media (max-width: 767px) {
 	#header{margin-bottom:15px}
-	.logo{margin:25px 0}
+	.logo{margin:25px 0; top: 39px; left: 30%;}
+	.logo img { height: 85px;}
 	.header-right{float:left;border:none}
 	.nav-account-cart{height:45px;line-height:45px}
 	.nav-account-cart > ul > li > a{height:45px;line-height:45px;padding-left:0;padding-right:60px;border:none}
@@ -395,6 +448,7 @@ select.form-text{height:45px}
 	.news-content{margin-right:0}
 	.nav-main{display:none}
 	.nav-main > ul > li{float:none;text-align:center}
+	.nav-main > ul > li:last-child { margin-bottom: 10px }
 	.nav-main > ul > li > a{display:inline-block;padding:0;text-align:center}
 	.nav-main-sub{position:relative;width:100%}
 	.nav-main-sub > li{text-align:center;border-bottom:1px solid #ebebeb}
@@ -417,6 +471,11 @@ select.form-text{height:45px}
 	.contact{padding-bottom:20px}
 	.article-title{margin-bottom:10px}
 	.article-info{padding-bottom:10px}
+	.search-submit { right: -1px; top: -2px;}
+	.service .block div {
+		margin-right: 20px;
+	}
+	.service .block p { float: none; width: unset; padding-right: 20px}
 }
 @media (min-width: 320px) and (max-width: 479px) {
 	.feature ul li{width:100%;margin:10px 0}
@@ -567,29 +626,7 @@ div#mail-box {
 	padding-bottom: 10px;
 }
 
-.service {
-	padding: 10px 70px;
-}
 
-.service .title {
-	color: #ffdd00;
-	font-size: 20px;
-	font-weight: bold;
-	padding-bottom: 10px;
-	display: block;
-}
-
-.service .block div {
-	margin-right: 45px;
-	width: 100px;
-	float: left
-}
-
-.service .block p {
-	padding-right: 20px;
-	float: left;
-	width: calc(100% - 145px);
-}
 
 .h200 {
 	height: 200px;
@@ -608,6 +645,9 @@ div#mail-box {
 }
 .mb10 {
 	margin-bottom: 10px;
+}
+.mb15 {
+	margin-bottom: 15px;
 }
 .mb20 {
 	margin-bottom: 20px;

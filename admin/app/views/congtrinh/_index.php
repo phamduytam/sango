@@ -1,6 +1,7 @@
 <tr>
 	<td><?php echo $data->id;?></td>
 	<td><?php echo $data->name;?></td>
+	<td><?php echo getCol($data->category, 'name');?></td>
 	<td><?php echo $data->order;?></td>
 	<td><?php echo $data->status == 1 ? 'Hiện' : 'Ẩn';?></td>
 	<td><?php echo date('d-m-Y H:i:s',strtotime($data->created));?></td>

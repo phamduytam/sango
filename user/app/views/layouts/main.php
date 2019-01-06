@@ -18,8 +18,6 @@
     <link rel="canonical" href="">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?php echo $this->getTitle();?>">
-    <meta property="og:image" content="<?php echo app()->baseUrl;?>/uploads/1504931514logo_mocstyle.png">
-    <meta property="og:image:secure_url" content="<?php echo app()->baseUrl;?>/uploads/1504931514logo_mocstyle.png">
 
     <meta property="og:description" content="<?php echo $this->getDescription();?>">
     <meta property="og:url" content="">
@@ -107,7 +105,7 @@
                                 <ul>
 
                                     <li class="<?php echo $this->id == 'site' ? 'active' : ''?>">
-                                        <a href="/"><img src="<?php echo app()->baseUrl;?>/assets/images/house.png"></a>
+                                        <a href="<?php echo app()->baseUrl;?>/"><img src="<?php echo app()->baseUrl;?>/assets/images/house.png"></a>
 
                                     </li>
 
@@ -165,7 +163,7 @@
                     else
                         $img = 'assets/images/logo.png';
                 ?>
-                <img src="<?php echo app()->baseUrl;?>/<?php echo $img?>">
+                <a href="<?php echo app()->baseUrl;?>/"><img src="<?php echo app()->baseUrl;?>/<?php echo $img?>"></a>
             </div>
         </header>
         <?php if($this->id == 'site'):?>
@@ -361,7 +359,7 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                             <p>
-                                © Bản quyền thuộc về Mộc Style
+                                © Bản quyền thuộc về Đẳng cấp Mộc
                             </p>
                         </div>
                     </div>

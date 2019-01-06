@@ -74,11 +74,14 @@ class Controller extends CController
 		return $advertise;
 	}
 
-	public function getBannerByCatId($cat_id) {
+	public function getBannerByCatId($cat_id, $num = '') {
 		$model = new AdvertiseAR('getBanner');
 		$model->status = 1;
 		$model->cat_id = $cat_id;
-		$advertise = $model->getBanner();
+		if ($num != '')
+			$advertise = $model->getSlide();
+		else
+			$advertise = $model->getBanner();
 		return $advertise;
 	}
 

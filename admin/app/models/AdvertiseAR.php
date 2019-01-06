@@ -40,7 +40,7 @@ class AdvertiseAR extends BaseAR
 			*/
 			array('name, cat_id', 'required', 'message' => 'Vui lòng nhập {attribute}'),
 			array('image', 'file', 'allowEmpty'=>true, 'types' => 'jpg, gif, png, jpeg', 'maxSize' => 2048*1000, 'wrongType' => 'Image không đúng định dạng ', 'tooLarge' => 'Image quá lớn'),
-			array('alias, created, order, status', 'safe')
+			array('alias, created, order, status, url', 'safe')
 		);
 	}
 
@@ -68,6 +68,7 @@ class AdvertiseAR extends BaseAR
 			'order'			=> 'Thứ tự',
 			'status'		=> 'Tình trạng',
 			'created'		=> 'Ngày tạo',
+			'url'			=> 'URL'
 		);
 	}
 

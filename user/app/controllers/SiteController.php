@@ -38,7 +38,7 @@ class SiteController extends Controller
 
 		$model = new TintucAR();
 		$model->noibat = true;
-		$tintuc = $model->getList(5);
+		$tintuc = $model->getList(4);
 
 		$model = new AboutAR();
 		$about = $model->findByPk(1);

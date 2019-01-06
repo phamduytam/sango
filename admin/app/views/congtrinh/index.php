@@ -1,15 +1,27 @@
 
 <div class="table-responsive">
 <div>
-	<div class="col-lg-6">
+	<div class="col-lg-9">
 		<form method="get" id="form" action="<?php echo app()->baseUrl?>/congtrinh">
-		<div class="input-group">
-			<input type="text" name="word" class="form-control" value="<?php echo $word;?>">
-			<span class="input-group-btn">
-				<input class="btn btn-default" value="Search" type="submit">
-			</span>
+			<div class="input-group" style="width: 100%">
+				<div class="row">
+					<div class="col-lg-6">
+						<select class="form-control cat_id" name="cat_id">
+							<option value="">Danh mục</option>
+							<?php foreach ($category as $v): ?>
+								<option value="<?php echo $v->id ?>" <?php echo $v->id == $cat_id ? "selected" : "" ?>><?php echo $v->name?></option>
+							<?php endforeach;?>
+						</select>
+					</div>
+					<div class="col-lg-6">
+						<input type="text" name="word" class="form-control" value="<?php echo $word;?>">
+						<span class="input-group-btn" style="display: block">
+							<input class="btn btn-default" value="Search" type="submit">
+						</span>
+					</div>
+				</div>
 
-		</div><!-- /input-group -->
+			</div><!-- /input-group -->
 		</form>
 	</div><!-- /.col-lg-6 -->
 	<div class="col-lg-3 pull-right">
@@ -25,7 +37,8 @@
 	<thead>
 		<tr>
 			<th>Id <i class="fa fa-sort"></i></th>
-			<th>Tiêu đề <i class="fa fa-sort"></i></th>
+			<th style="width: 30%">Tiêu đề <i class="fa fa-sort"></i></th>
+			<th>Danh mục<i class="fa fa-sort"></i></th>
 			<th>Thứ tự <i class="fa fa-sort"></i></th>
 			<th>Trạng thái <i class="fa fa-sort"></i></th>
 			<th>Ngày tạo <i class="fa fa-sort"></i></th>

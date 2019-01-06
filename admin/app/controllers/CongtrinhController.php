@@ -9,10 +9,15 @@ class CongtrinhController extends Controller
 			);
 		
 		$word = request()->getQuery('word', '');
+		$cat_id = request()->getQuery('cat_id', '');
 		$congtrinh = new CongTrinhAR("searchList");
 		if($word) $congtrinh->word = $word;
+		if($cat_id) $congtrinh->cat_id = $cat_id;
+		// danh muc 1
+		$model_cate = new Category1AR();
+		$category = $model_cate->getSub1();
 		$content = $congtrinh->searchList();
-		$this->render('index', compact('content', 'word'));
+		$this->render('index', compact('content', 'word', 'category', 'cat_id'));
 	}
 
 	public function actionAdd()

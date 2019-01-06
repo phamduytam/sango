@@ -38,7 +38,7 @@
             <?php $j = 0;?>
             <?php foreach($category as $v):?>
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb15">
                         <img src="<?php echo app()->baseUrl?>/uploads/<?php echo $v->img_left?>" class="h200">
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -237,7 +237,7 @@
         <div class="row">
             <div class="col-lg-12 center">
                 <span class="title"><?php echo $about->title ?></span>
-                <div class="pb10"><?php echo $about->description ?><</div>
+                <div class="pb10"><?php echo $about->description ?></div>
             </div>
         </div>
         <div class="row">
@@ -289,6 +289,36 @@
                 <div><img src="<?php echo app()->baseUrl?>/assets/images/icon10.jpg"></div>
                 <?php echo $about->camket ?>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+            <p><h3 class="color_yellow">TIN TỨC ĐẲNG CẤP MỘC</h3></p>
+            <p>Các tin tức về hoạt động, sự kiện của công ty, tin tức về các loại sàn gỗ mới, sàn gỗ được yêu thích... các tin tức, chương trình kết nối với khách hàng.</p>
+        </div>
+    </div>
+    <div class="container service">
+        <div class="row">
+            <?php
+                foreach ($tintuc as $v1):
+            ?>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="product-item">
+                    <div class="product-item-thumbnail">
+                        <a href="<?php echo url('tin-tuc/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
+                            <img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/<?php echo $v1->image?>" alt="<?php echo $v1->name?>">
+                        </a>
+                    </div>
+                    <h3 class="product-item-name">
+                        <a href="<?php echo url('tin-tuc/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
+                            <b><?php echo $this->cutString($v1->name)?></b>
+                        </a>
+                    </h3>
+                    <p class="article-summary"><?php echo $this->cutString($v1->description, 45) ?></p>
+                </div>
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

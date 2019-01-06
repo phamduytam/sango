@@ -89,7 +89,10 @@ $this->description = $product->description;
 				<a href="#product-tab1" aria-controls="product-tab1" role="tab" data-toggle="tab">Thông tin sản phẩm</a>
 			</li>
 			<li role="presentation">
-				<a href="#product-tab2" aria-controls="product-tab2" role="tab" data-toggle="tab">Đánh giá</a>
+				<a href="#product-tab2" aria-controls="product-tab2" role="tab" data-toggle="tab">Chế độ bảo hành</a>
+			</li>
+			<li role="presentation">
+				<a href="#product-tab3" aria-controls="product-tab3" role="tab" data-toggle="tab">Công trình đã thi công</a>
 			</li>
 		</ul>
 		<!-- Tab panes -->
@@ -98,7 +101,32 @@ $this->description = $product->description;
 				<?php echo $product->content; ?>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="product-tab2">
-				Chưa có đánh giá nào
+				<?php if ($baohanh) {
+					echo $baohanh->content;
+				} 
+				?>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="product-tab3">
+				<div class="row">
+				<?php
+					foreach ($congtrinh as $v1):
+				?>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						<div class="product-item">
+							<div class="product-item-thumbnail">
+								<a href="<?php echo url('cong-trinh/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
+									<img class="img-responsive" src="<?php echo app()->baseUrl?>/uploads/<?php echo $v1->image?>" alt="<?php echo $v1->name?>">
+								</a>
+							</div>
+							<h3 class="product-item-name">
+								<a href="<?php echo url('cong-trinh/chi-tiet/' . $v1->id . '/' . $v1->alias)?>">
+									<?php echo $this->cutString($v1->name)?>
+								</a>
+							</h3>
+						</div>
+					</div>
+				<?php endforeach; ?>
+				</div>
 			</div>
 		</div>
 	</div>

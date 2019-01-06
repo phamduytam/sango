@@ -44,7 +44,12 @@ class ProductController extends Controller
 			$model_tag->tagList = "all";
 		$tag_pro = $model_tag->findAllListTag();
 
-		$this->render('detail', compact('product', 'lienquan', 'tag_pro'));
+		$static = new StaticAR();
+		$baohanh = $static->findByPk(23);
+
+		$congtrinh = $this->getCongTrinhByCatId($product->cat_id, 6);
+
+		$this->render('detail', compact('product', 'lienquan', 'tag_pro', 'baohanh', 'congtrinh'));
 	}
 
 	public function actionCategory($alias, $alias1 = '') {

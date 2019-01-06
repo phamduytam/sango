@@ -7,6 +7,7 @@ class CongTrinhAR extends BaseAR
 	 * @return AdminAR the static model class
 	 */
 	public $word;
+	public $cat_id;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -52,6 +53,7 @@ class CongTrinhAR extends BaseAR
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'category'=>array(self::BELONGS_TO, 'Category1AR', 'cat_id'),
 		);
 	}
 
@@ -105,8 +107,16 @@ class CongTrinhAR extends BaseAR
 		$criteria->select = '*';
 		//$criteria->addCondition('status = :status')->params[':status'] = 1;
 		if(strlen($this->word) > 0)
-			$criteria->compare('name',$this->word,true);
-		$criteria->order = 'id DESC';
+			$criteria->compare('t.name',$this->word,true);
+		if(strlen($this->cat_id) > 0)
+			$criteria->addCondition('t.cat_id = :cat_id')->params[':cat_id'] = $this->cat_id;
+		$criteria->with = array(
+			'category' => array(
+				'select' 	=> 'category.name',
+				'joinType'	=> 'LEFT JOIN'
+			)
+		);
+		$criteria->order = 't.id DESC';
 		return $criteria;
 	}
 

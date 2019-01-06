@@ -125,6 +125,8 @@ class AdvertiseController extends Controller
 			}else if($cat_id == 1){
 				$w = 202; $h = 102;
 				return;
+			} else {
+				$w = 230; $h = 350;
 			}
 			// *** 1) Initialise / load image
 			$resizeObj = new resize($pathImage);

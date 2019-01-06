@@ -8,10 +8,15 @@ class ProductController extends Controller
 			'Sản phẩm' => ''
 			);
 		$word = request()->getQuery('word', '');
+		$cat_id = request()->getQuery('cat_id', '');
 		$product = new ProductAR("searchListProduct");
 		if($word) $product->word = $word;
+		if($cat_id) $product->cat_id = $cat_id;
+		// danh muc 1
+		$model_cate = new Category1AR();
+		$category = $model_cate->getSub1();
 		$content = $product->searchListProduct();
-		$this->render('index', compact('content', 'word'));
+		$this->render('index', compact('content', 'word', 'category', 'cat_id'));
 	}
 
 	public function actionAdd()
