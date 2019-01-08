@@ -23,29 +23,30 @@
     <meta property="og:url" content="">
     <meta property="og:site_name" content="Moc Style">
 
-    <link rel="icon" href="<?php echo app()->baseUrl;?>/assets/favicon.png?1493875157619" type="image/x-icon" />
+    <?php $time = time()?>
+    <link rel="icon" href="<?php echo app()->baseUrl;?>/assets/favicon.png?<?php echo $time?>" type="image/x-icon" />
     <!-- Bootstrap -->
-    <link href='<?php echo app()->baseUrl;?>/assets/bootstrap.min.css?1493875157619' rel='stylesheet' type='text/css' />
+    <link href='<?php echo app()->baseUrl;?>/assets/bootstrap.min.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <!-- Roboto Fonts Google -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic&subset=latin,vietnamese'
         rel='stylesheet' type='text/css'>
     <!-- Fonts Awesome -->
-    <link href='<?php echo app()->baseUrl;?>/assets/font-awesome.min.css?1493875157619' rel='stylesheet' type='text/css' />
+    <link href='<?php echo app()->baseUrl;?>/assets/font-awesome.min.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <!-- Owl Carousel -->
-    <link href='<?php echo app()->baseUrl;?>/assets/owl.carousel.css?1493875157619' rel='stylesheet' type='text/css' />
+    <link href='<?php echo app()->baseUrl;?>/assets/owl.carousel.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <!-- Animate -->
-    <link href='<?php echo app()->baseUrl;?>/assets/animate.min.css?1493875157619' rel='stylesheet' type='text/css' />
+    <link href='<?php echo app()->baseUrl;?>/assets/animate.min.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <!-- Style -->
-    <link href='<?php echo app()->baseUrl;?>/assets/style.css?1493875157619' rel='stylesheet' type='text/css' />
+    <link href='<?php echo app()->baseUrl;?>/assets/style.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <link href='<?php echo app()->baseUrl;?>/assets/themes_support/nprogress.css?20171025' rel='stylesheet' type='text/css' />
     <link href='<?php echo app()->baseUrl;?>/assets/themes_support/checkout.css?20180321' rel='stylesheet' type='text/css' />
-    <script src='<?php echo app()->baseUrl;?>/assets/jquery-1.11.3.min.js?1493875157619' type='text/javascript'></script>
+    <script src='<?php echo app()->baseUrl;?>/assets/jquery-1.11.3.min.js?<?php echo $time?>' type='text/javascript'></script>
     <!-- Bootstrap -->
-    <script src='<?php echo app()->baseUrl;?>/assets/bootstrap.min.js?1493875157619' type='text/javascript'></script>
+    <script src='<?php echo app()->baseUrl;?>/assets/bootstrap.min.js?<?php echo $time?>' type='text/javascript'></script>
     <!-- Bootstrap -->
-    <script src='<?php echo app()->baseUrl;?>/assets/owl.carousel.min.js?1493875157619' type='text/javascript'></script>
+    <script src='<?php echo app()->baseUrl;?>/assets/owl.carousel.min.js?<?php echo $time?>' type='text/javascript'></script>
     <!-- Notify -->
-    <script src='<?php echo app()->baseUrl;?>/assets/bootstrap-notify.min.js?1493875157619' type='text/javascript'></script>
+    <script src='<?php echo app()->baseUrl;?>/assets/bootstrap-notify.min.js?<?php echo $time?>' type='text/javascript'></script>
 
 
     <!-- Bizweb API -->
@@ -55,8 +56,8 @@
     <script src='<?php echo app()->baseUrl;?>/assets/themes_support/customer.js?4' type='text/javascript'></script>
     <script src='<?php echo app()->baseUrl;?>/assets/jquery.elevatezoom.js' type='text/javascript'></script>
     <!-- Bootstrap -->
-    <script src='<?php echo app()->baseUrl;?>/assets/main.js?1493875157619' type='text/javascript'></script>
-    <link href='<?php echo app()->baseUrl;?>/assets/bw-statistics-style.css?1493875157619' rel='stylesheet' type='text/css' />
+    <script src='<?php echo app()->baseUrl;?>/assets/main.js?<?php echo $time?>' type='text/javascript'></script>
+    <link href='<?php echo app()->baseUrl;?>/assets/bw-statistics-style.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -72,7 +73,7 @@
                                 <?php echo $hotline;?> <span>(Zalo / Viber)</span>
                             </h2>
                             <a class="nav-main-button" href="javascript:void(0)">
-                                <img src="<?php echo app()->baseUrl;?>/assets/nav-main-bars.png?1493875157619" alt="Danh mục">
+                                <img src="<?php echo app()->baseUrl;?>/assets/nav-main-bars.png?<?php echo $time?>" alt="Danh mục">
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 float-right">

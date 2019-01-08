@@ -16,9 +16,9 @@ $(document).ready(function(){
 			container.hide();
 		}
 	});
-	// $("#click_show_cate").click(function(){
-	// 	$("#show_cate").toggle("300");
-	// });
+	$("#click_show_cate").click(function(){
+		$("#show_cate").toggle("300");
+	});
 
 
 	/* For menu index and menu collection desktop */

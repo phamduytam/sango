@@ -13,7 +13,7 @@ function getSetting(){
 
 $setting = array();
 
-$setting['app_name'] = 'Sàn gỗ';
+$setting['app_name'] = 'Đẳng cấp mộc';
 $setting['adminEmail'] = '';
 $setting['enableMail'] = false;
 $setting['enableDeviceCheck'] = false; //端末チェックを行う = true

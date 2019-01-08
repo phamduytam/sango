@@ -121,9 +121,6 @@
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-text email"></div>
             </div>
         </div>
-        <div class="row mb20 center">
-            <input type="button" value="Gửi" class="btn btn-primary sendbaogia" disabled="disabled">
-        </div>
         <div class="row mb20">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb10"><b>CHỌN LOẠI SÀN GỖ</b></div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -169,9 +166,11 @@
                             </select>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">ĐƠN GIÁ: <span class="red dongia">---</span> VND/M2</div>
         </div>
+        
         <div class="row mb20">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb10"><b>DIỆN TÍCH LÓT SÀN</b></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -202,6 +201,10 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 50px; font-weight: bold">BÁO GIÁ: <span class="red thanhtien">---</span> VND/M2</div>
+        </div>
+        
+        <div class="row mb20 center">
+            <input type="button" value="Gửi" class="btn btn-primary sendbaogia" disabled="disabled">
         </div>
         <div class="row mb20">
             <div class="col-lg-12">

@@ -118,7 +118,7 @@
 					if ($banner3):
 						foreach($banner3 as $v):
                 ?>
-					<p><a target="_blank" href="<?php echo $v->url != '' ? $v->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $v->image?>" alt="<?php echo $v->name?>"></a></p>
+					<p class="adv"><a target="_blank" href="<?php echo $v->url != '' ? $v->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $v->image?>" alt="<?php echo $v->name?>"></a></p>
 					<?php endforeach;?>
 				<?php endif; ?>
 			</div>

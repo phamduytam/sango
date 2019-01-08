@@ -86,13 +86,13 @@ $this->description = $product->description;
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active">
-				<a href="#product-tab1" aria-controls="product-tab1" role="tab" data-toggle="tab">Thông tin sản phẩm</a>
+				<a href="#product-tab1" aria-controls="product-tab1" role="tab" data-toggle="tab">Thông tin <br class="enter"> sản phẩm</a>
 			</li>
 			<li role="presentation">
-				<a href="#product-tab2" aria-controls="product-tab2" role="tab" data-toggle="tab">Chế độ bảo hành</a>
+				<a href="#product-tab2" aria-controls="product-tab2" role="tab" data-toggle="tab">Chế độ <br class="enter"> bảo hành</a>
 			</li>
 			<li role="presentation">
-				<a href="#product-tab3" aria-controls="product-tab3" role="tab" data-toggle="tab">Công trình đã thi công</a>
+				<a href="#product-tab3" aria-controls="product-tab3" role="tab" data-toggle="tab">Công trình <br class="enter"> đã thi công</a>
 			</li>
 		</ul>
 		<!-- Tab panes -->
