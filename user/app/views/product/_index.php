@@ -18,6 +18,7 @@
 				<?php echo $data->name?>
 			</a>
 		</h3>
+		<?php if($data->price > 0) :?>
 		<div class="price-box">
 			<?php
 				if ($data->khuyenmai > 0):
@@ -36,6 +37,7 @@
 			</span>
 			<?php endif;?>
 		</div>
+		<?php endif; ?>
 		<?php if ($data->quycach): ?>
 			<div>Quy cách: <?php echo $data->quycach; ?></div>
 		<?php endif; ?>

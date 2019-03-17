@@ -32,6 +32,7 @@ $this->description = $product->description;
 				<h1 itemprop="name" class="product-name">
 					<?php echo $product->name ?>
 				</h1>
+				<?php if($product->price > 0) :?>
 				<div class="price-box">
 					<?php
 						if ($product->khuyenmai > 0):
@@ -52,6 +53,7 @@ $this->description = $product->description;
 					<!-- Giá Khuyến mại -->
 
 				</div>
+				<?php endif;?>
 				<?php if ($product->masp): ?>
 					<div>Mã sản phẩm: <?php echo $product->masp; ?></div>
 				<?php endif; ?>
@@ -159,6 +161,7 @@ $this->description = $product->description;
 									<?php echo $value->name?>
 								</a>
 							</h3>
+							<?php if($value->price > 0) :?>
 							<div class="price-box">
 								<?php
 									if ($value->khuyenmai > 0):
@@ -177,6 +180,7 @@ $this->description = $product->description;
 								</span>
 								<?php endif;?>
 							</div>
+							<?php endif;?>
 							<?php if ($value->quycach): ?>
 								<div>Quy cách: <?php echo $value->quycach; ?></div>
 							<?php endif; ?>

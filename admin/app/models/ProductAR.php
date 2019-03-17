@@ -41,9 +41,9 @@ class ProductAR extends BaseAR
 			*/
 			array('alias, created', 'required'),
 			array('name', 'required', 'message' => 'Vui lòng nhập tên sản phẩm'),
-			array('content', 'required', 'message' => 'Vui lòng nhập nội dung'),
+			// array('content', 'required', 'message' => 'Vui lòng nhập nội dung'),
 			array('image', 'file', 'allowEmpty'=>true, 'types' => 'jpg, gif, png, jpeg', 'maxSize' => 5 *1024*1000, 'wrongType' => 'Image không đúng định dạng ', 'tooLarge' => 'Image quá lớn'),
-			array('description, order, status, cat_id, cat1_id, thuonghieu_id, tag, price,
+			array('content, description, order, status, cat_id, cat1_id, thuonghieu_id, tag, price,
 			 baohanh, masp, khuyenmai, color, quycach, xuatxu, tinhtrang, ungdung, chongtray, noibat, banchay, hot', 'safe')
 		);
 	}

@@ -111,17 +111,19 @@ class AdvertiseController extends Controller
 
 	private function resizeImage($pathImage, $cat_id){
 		if(is_file($pathImage)){
+			$type = 'auto';
 			if($cat_id == 7){
 				$w = 291; $h = 35;
 			}
 			else if($cat_id == 3 || $cat_id == 4){
 				$w = 360; $h = 320;
 			}
-			else if($cat_id == 5){
+			else if($cat_id == 5 || $cat_id == 6 || $cat_id == 9){
 				$w = 1140; $h = 200;
 			}
 			else if($cat_id == 2){
 				$w = 750; $h = 500;
+				$type = 'exact';
 			}else if($cat_id == 1){
 				$w = 202; $h = 102;
 				return;
@@ -132,7 +134,7 @@ class AdvertiseController extends Controller
 			$resizeObj = new resize($pathImage);
 
 			// *** 2) Resize image (options: exact, portrait, landscape, auto, crop)
-			$resizeObj -> resizeImage($w, $h, 'auto');
+			$resizeObj -> resizeImage($w, $h, $type);
 
 			// *** 3) Save image
 			$resizeObj -> saveImage($pathImage, 100);

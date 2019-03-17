@@ -34,7 +34,32 @@
                 <?php endforeach; ?>
             <?php endif;?>
         </div>
+        <section class="banner-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <?php
+                            $banner3 = $this->getBannerByCatId(5);
+                            if ($banner3):
+                        ?>
+                                <a target="_blank" href="<?php echo $banner3->url != '' ? $banner3->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $banner3->image?>" alt="<?php echo $banner3->name?>"></a>
+                                <?php else: ?>
+                                <img class="img-responsive" src="assets/banner3.jpg?1493875157619" alt="Banner 3">
+                                <?php endif; ?>
+
+                    </div>
+                </div>
+            </div>
+        </section>
         <?php if ($category):?>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+                    <h3 class="color_yellow">CÁC CÔNG TRÌNH ĐÃ HOÀN THÀNH</h3>
+                    <p style="margin: 10px 0 20px 0">
+                    Các công trình mà Đẳng Cấp Mộc đã thi công tại nhiều nơi tại TPHCM, Đẳng Cấp Mộc có kinh nghiệm thi công hàng trăm công trình,...
+                    </p>
+                </div>
+            </div>
             <?php $j = 0;?>
             <?php foreach($category as $v):?>
                 <div class="row">
@@ -45,6 +70,7 @@
                         <div class="row">
                         <?php $congtrinhCat = $this->getCongTrinhByCatId($v->id, 3);?>
                         <?php
+                            if ($congtrinhCat):
                             foreach ($congtrinhCat as $v1):
                         ?>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -61,7 +87,9 @@
                                     </h3>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                        <?php endforeach;
+                            endif;
+                         ?>
                         </div>
                     </div>
                 </div>
@@ -73,7 +101,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php
-                        $banner3 = $this->getBannerByCatId(5);
+                        $banner3 = $this->getBannerByCatId(6);
                         if ($banner3):
                     ?>
                             <a target="_blank" href="<?php echo $banner3->url != '' ? $banner3->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $banner3->image?>" alt="<?php echo $banner3->name?>"></a>
@@ -219,12 +247,13 @@
             $this->endWidget();
         ?>
     </div>
+    
     <section class="banner-middle">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php
-                        $banner3 = $this->getBannerByCatId(6);
+                        $banner3 = $this->getBannerByCatId(9);
                         if ($banner3):
                     ?>
                             <a target="_blank" href="<?php echo $banner3->url != '' ? $banner3->url : 'javascript:void(0)';?>"><img class="img-responsive" src="<?php echo app()->baseUrl;?>/uploads/<?php echo $banner3->image?>" alt="<?php echo $banner3->name?>"></a>
@@ -236,6 +265,7 @@
             </div>
         </div>
     </section>
+
     <div class="container service">
         <div class="row">
             <div class="col-lg-12 center">

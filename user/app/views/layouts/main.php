@@ -37,7 +37,6 @@
     <!-- Animate -->
     <link href='<?php echo app()->baseUrl;?>/assets/animate.min.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <!-- Style -->
-    <link href='<?php echo app()->baseUrl;?>/assets/style.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
     <link href='<?php echo app()->baseUrl;?>/assets/themes_support/nprogress.css?20171025' rel='stylesheet' type='text/css' />
     <link href='<?php echo app()->baseUrl;?>/assets/themes_support/checkout.css?20180321' rel='stylesheet' type='text/css' />
     <script src='<?php echo app()->baseUrl;?>/assets/jquery-1.11.3.min.js?<?php echo $time?>' type='text/javascript'></script>
@@ -58,6 +57,7 @@
     <!-- Bootstrap -->
     <script src='<?php echo app()->baseUrl;?>/assets/main.js?<?php echo $time?>' type='text/javascript'></script>
     <link href='<?php echo app()->baseUrl;?>/assets/bw-statistics-style.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
+    <link href='<?php echo app()->baseUrl;?>/assets/style.css?<?php echo $time?>' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -112,7 +112,46 @@
 
                                     <li class="<?php echo $this->id == 'product' && $this->pageTitle != 'Phụ kiện sàn gỗ' ? 'active' : ''?>">
                                         <a href="<?php echo app()->baseUrl;?>/san-pham">Sản phẩm sàn gỗ</a>
+                                        <?php
 
+                                            $isMobile = $this->isMobile();
+                                            if ($isMobile):
+                                            ?>
+                                        <ul class="nav-main-sub">
+                                            <?php
+                                                $category = $this->getCategory();
+                                                if($category):
+                                                    ?>
+                                                <?php
+                                                foreach ($category as $v):
+                                            ?>
+                                            <li>
+                                            <a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v->alias?>.html" title="<?php echo $v->name?>">
+                                                    <?php echo $v->name?></a>
+                                                
+                                                    <?php
+                                                        $category1 = $this->getCategory1($v->id);
+                                                        if($category1):
+                                                            ?>
+                                                    <ul class="nav-main-sub2">
+                                                        <?php
+                                                        foreach ($category1 as $v1):
+                                                    ?>
+                                                    <li>
+                                                        <a href="<?php echo app()->baseUrl;?>/san-pham/<?php echo $v1->alias?>.html" title="<?php echo $v1->name?>">
+                                                            <?php echo $v1->name?></a>		
+                                                        </a>
+                                                    </li>
+                                                    <?php endforeach; ?>
+                                                    </ul>
+                                                    <?php endif; ?>
+                                                	
+                                                
+                                            </li>
+                                            <?php endforeach;?>
+                                            <?php endif;?>
+                                        </ul>
+                                        <?php endif;?>
                                     </li>
                                     <li class="<?php echo $this->pageTitle == 'Phụ kiện sàn gỗ' ? 'active' : ''?>">
                                         <a href="<?php echo app()->baseUrl;?>/san-pham/phu-kien-san-go">Phụ kiện sàn gỗ</a>
@@ -156,7 +195,7 @@
                     </div>
                 </div>
             </div>
-            <div class="logo">
+            <!--<div class="logo">
                 <?php $logo = $this->getLogo()?>
                 <?php
                     if ($logo)
@@ -165,7 +204,7 @@
                         $img = 'assets/images/logo.png';
                 ?>
                 <a href="<?php echo app()->baseUrl;?>/"><img src="<?php echo app()->baseUrl;?>/<?php echo $img?>"></a>
-            </div>
+            </div>-->
         </header>
         <?php if($this->id == 'site'):?>
         <section class="slider">
@@ -237,16 +276,19 @@
                     <div class="row">
                         <div class="col-lg-4 col-sm-6 col-md-6 col-xs-12 footer-about">
                         <?php
-                            $logo_footer = $this->getBannerByCatId(7);
+                            //$logo_footer = $this->getBannerByCatId(7);
                         ?>
                         <?php
-                            if ($logo_footer)
-                                $img = 'uploads/' . $logo_footer->image;
-                            else
-                                $img = 'assets/logo-footer.png';
+                            // if ($logo_footer)
+                            //     $img = 'uploads/' . $logo_footer->image;
+                            // else
+                            //     $img = 'assets/logo-footer.png';
                         ?>
-                            <img src="<?php echo app()->baseUrl;?>/<?php echo $img?>">
-
+                            <!--<img src="<?php echo app()->baseUrl;?>/<?php echo $img?>">-->
+                            <div>
+                                <h4 class="color_yellow">CÔNG TY ĐẲNG CẤP MỘC</h4>
+                                <p class="mt10">Hệ thống phân phối các loại sàn gỗ ngoài trời, Sàn gỗ giá rẻ, Sàn gỗ công nghiệp, Sàn gỗ tự nhiên, Phụ kiện sàn gỗ, Sàn gỗ chịu nước, Sàn gỗ cao cáp, Sàn nhựa...</p>
+                            </div>
                             <?php $contact = $this->getContact(); ?>
                             <ul>
 
@@ -358,15 +400,41 @@
             <div class="footer-copyright">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                            <p>
-                                © Bản quyền thuộc về Đẳng cấp Mộc
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <p>Copyright © 2018 by Đẳng cấp Mộc. All rights reserved.<p>
+                            <p>Giấy chứng nhận đăng ký kinh doanh số 0304123456 do Sở Kế Hoạch và Đầu Tư TP.HCM cấp ngày 01/01/2018.
+
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+    </div>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        xfbml            : true,
+        version          : 'v3.2'
+        });
+    };
+
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+    attribution=setup_tool
+    page_id="2019072911721432"
+    logged_in_greeting="Xin chào, tôi có thể giúp gì cho bạn?"
+    logged_out_greeting="Xin chào, tôi có thể giúp gì cho bạn?">
     </div>
 </body>
 

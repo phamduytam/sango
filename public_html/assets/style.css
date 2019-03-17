@@ -75,7 +75,7 @@ span#click_show { color: #c7c7c7; position: absolute;right: 10px;top: 19px;curso
 .search-submit{position:absolute;right:-14px;top:13px;height:38px;width:110px;font-size:16px;line-height:38px;color:#c7c7c7;text-align:center;background-color:transparent;border:none}
 .header-bottom{background-color: #000; border-bottom: 3px solid #f6db34; min-height: 69px; }
 .nav-main-button{float:right; z-index: 100; padding-left: 10px; position: relative;}
-.nav-main > ul{list-style:none;margin:0;padding:0; margin-top: 69px; height: 100%; width: 100%;}
+.nav-main > ul{list-style:none;margin:0;padding:0; height: 100%; width: 100%; margin-top: 7px}
 .nav-main > ul > li{float:left;position:relative}
 .nav-main > ul > li > a{display:block;height:48px;padding:0 20px;line-height:48px;font-weight:700;color:#f4dc34;text-transform:uppercase}
 .nav-main > ul > li:first-child > a{padding-left:0}
@@ -91,7 +91,7 @@ span#click_show { color: #c7c7c7; position: absolute;right: 10px;top: 19px;curso
 .nav-main-sub > li > a{display:block;height:44px;padding:0 15px;line-height:44px;color:#404040;border-bottom:1px solid #ebebeb}
 .nav-main-sub > li:last-child > a{border:none}
 .nav-main-sub > li:hover > .nav-main-sub2{display:block}
-.nav-main-sub2{position:absolute;right:-200px;top:-1px;display:none;width:200px;border:1px solid #ebebeb;border-left:3px solid #ef3737;background-color:#fff;animation-name:slideInRight;animation-duration:.7s}
+.nav-main-sub2{position:absolute;right:-200px;top:-1px;display:none;width:200px;border:1px solid #ebebeb;border-left:3px solid #ef3737;background-color:#fff;animation-name:slideInRight;animation-duration:.7s; border-bottom: none;}
 .nav-main-sub2 > li > a{display:block;height:44px;padding:0 15px;line-height:44px;color:#404040;border-bottom:1px solid #ebebeb}
 .slider{margin-bottom:60px}
 .slider .row { border: 0px solid #f6db34 }
@@ -344,9 +344,10 @@ select.form-text{height:45px}
 .social-youtube a{color:#404040}
 .social-youtube:hover a{background-color:#CF3427;border-color:#CF3427;color:#fff}
 .nav-social ul li a{display:block;height:30px;width:30px;line-height:30px;text-align:center;border:1px solid #898989;border-radius:50%}
-.footer-bottom{padding:50px 0;background-color:#f6f6f6}
+.footer-bottom{padding:50px 0;background-color:#161616; color: #fff;}
+.footer-bottom a { color: #fff;}
 .heading-small{position:relative;height:35px;border-bottom:1px solid #ebebeb}
-.heading-small h3{position:absolute;top:-1px;left:0;display:inline-block;margin:0;font-size:16px;line-height:35px;color:#404040;text-transform:uppercase;border-bottom:1px solid #ef3737}
+.heading-small h3{position:absolute;top:-1px;left:0;display:inline-block;margin:0;font-size:16px;line-height:35px;color:#fff;text-transform:uppercase;border-bottom:1px solid #ffdc04}
 .footer-about ul{margin-top:10px}
 .footer-about ul li{line-height:35px;width:100%;float: left;}
 .footer-about ul li i{float:left;width:25px; color:#ef3737;line-height:35px}
@@ -354,15 +355,15 @@ select.form-text{height:45px}
 .footer-about ul li:first-child i{/*margin-bottom:10px;*/ margin-top:-5px;}
 .footer-about ul li p{margin:0;padding:0}
 .footer-about ul li:first-child p{line-height:24px}
-.footer-about ul li a{color:#404040}
+.footer-about ul li a{color:#fff}
 .footer-menu ul{margin-top:10px}
-.footer-menu ul li a{display:block;line-height:35px;color:#404040}
+.footer-menu ul li a{display:block;line-height:35px;color:#fff}
 .footer-menu ul li a:hover{color:#ef3737}
 .footer-subcribe > p{margin:10px 0;line-height:35px}
 .subcribe-email{width:100%;height:40px;padding:0 15px;margin-bottom:15px;line-height:40px;border:1px solid #ebebeb;border-radius:5px;outline:none}
 .subcribe-submit{height:35px;display:inherit;padding:0 30px;line-height:35px;background-color:#ef3737;color:#fff;text-align:center;border:none;border-radius:5px;outline:none}
-.footer-copyright{color:#f6f6f6;background-color:#f6f6f6;border-top:1px solid #dbdbdb}
-.footer-copyright p{height:60px;margin:0;padding:0;color:#404040;line-height:60px}
+.footer-copyright{color:#f6f6f6;background-color:#000;border-top:1px solid #dbdbdb;height:65px;line-height:1.6;margin-bottom: 20px;padding-top: 10px}
+.footer-copyright p{margin:0;padding:0;color:#fff;}
 .footer-copyright p a{color:#ef3737}
 .nav-payments{float:right}
 .nav-payments ul li{float:left;margin-left:15px;color:#404040;line-height:60px}
@@ -450,15 +451,20 @@ select.form-text{height:45px}
 	.footer-about,.footer-menu{margin-bottom:20px}
 	.news-content{margin-right:0}
 	.nav-main{display:none}
+	.nav-main {margin-top: 69px;}
 	.nav-main > ul > li{float:none;text-align:center}
+	.nav-main > ul > li:first-child { display: none }
 	.nav-main > ul > li:last-child { margin-bottom: 10px }
 	.nav-main > ul > li > a{display:inline-block;padding:0;text-align:center}
 	.nav-main-sub{position:relative;width:100%}
 	.nav-main-sub > li{text-align:center;border-bottom:1px solid #ebebeb}
 	.nav-main-sub > li > a{display:inline-block;text-align:center;border:none}
+	
 	.nav-main-sub2{position:relative;left:0;width:100%}
 	.nav-main-sub2 > li > a{text-align:center}
+	.nav-main-sub2 > li:last-child > a { border-bottom: none;}
 	.cart-mini{width:320px;right:-25px}
+	.nav-category { display: none}
 	.nav-category > ul > li:hover{background-color:#fff}
 	.nav-category > ul > li:hover > a{color:#404040}
 	.nav-category-sub{position:relative;left:0;width:100%;border:none}
